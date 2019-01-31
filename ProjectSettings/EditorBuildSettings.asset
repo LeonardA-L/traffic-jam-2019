@@ -7,5 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: c1547b799750bf543a2891c1ea43a105
+  - enabled: 1
+    path: Assets/Scenes/TinyScene1.unity
+    guid: a3d71c4a514a8104b8d0f719250fb819
+  - enabled: 1
+    path: Assets/Scenes/TinyScene2.unity
+    guid: 230218df432d69f4fad6d8b23e812879
   m_configObjects: {}
