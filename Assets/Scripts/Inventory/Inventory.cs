@@ -38,6 +38,11 @@ namespace tfj
 
         public void Add(string _itemID)
         {
+            if (!m_references.ContainsKey(_itemID))
+            {
+                Debug.LogError("No item with ID " + _itemID);
+                return;
+            }
             Add(m_references[_itemID]);
         }
 
@@ -48,7 +53,27 @@ namespace tfj
 
         public void Remove(string _itemID)
         {
+            if (!m_references.ContainsKey(_itemID))
+            {
+                Debug.LogError("No item with ID " + _itemID);
+                return;
+            }
             Remove(m_references[_itemID]);
+        }
+
+        public bool HasItem(Item _item)
+        {
+            return m_items.Contains(_item);
+        }
+
+        public bool HasItem(string _itemID)
+        {
+            if (!m_references.ContainsKey(_itemID))
+            {
+                Debug.LogError("No item with ID " + _itemID);
+                return false;
+            }
+            return HasItem(m_references[_itemID]);
         }
 
         public List<Item> Items
