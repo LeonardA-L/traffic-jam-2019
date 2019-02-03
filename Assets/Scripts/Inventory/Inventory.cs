@@ -33,6 +33,11 @@ namespace tfj
             m_items.Add(_item);
         }
 
+        public void Remove(Item _item)
+        {
+            m_items.Remove(_item);
+        }
+
         public List<Item> Items
         {
             get

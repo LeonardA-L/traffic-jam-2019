@@ -26,6 +26,7 @@ namespace tfj
 
         private void PrepareForSerialization()
         {
+            m_inventorySerialized.IDs.Clear();
             foreach (var item in m_inventory.Items)
             {
                 m_inventorySerialized.Add(item.Id);
