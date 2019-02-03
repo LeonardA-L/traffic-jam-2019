@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b98c2b7110c6849b4747d12793e8fd, type: 3}
+  m_Name: RedCube
+  m_EditorClassIdentifier: 
+  m_id: red_cube
+  m_view3D: {fileID: 1563452206220652882, guid: 5a07cf9f249e74842a3c6a990c7ae345,
+    type: 3}
+  m_viewSprite: 
