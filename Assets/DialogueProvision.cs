@@ -15,6 +15,11 @@ namespace tfj
             {
                 return GameManager.Instance.Inventory.HasItem(parameters[0].AsString);
             });
+
+            runner.dialogue.library.RegisterFunction("random", 1, delegate (Yarn.Value[] parameters)
+            {
+                return (int)Random.Range(0, parameters[0].AsNumber);
+            });
         }
     }
 }
