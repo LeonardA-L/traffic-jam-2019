@@ -6,8 +6,8 @@ namespace tfj
 {
     public class GameManager : Singleton<GameManager>
     {
-        public GameState m_gameState;
         public string m_savePath = "/TFJ_state.sav" /*TODO*/;
+        public GameState m_gameState;
 
         // Start is called before the first frame update
         void Start()

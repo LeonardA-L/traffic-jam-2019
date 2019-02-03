@@ -40,7 +40,7 @@ namespace tfj
 
             if (EditorApplication.isPlaying)
             {
-                EditorGUILayout.LabelField("Inventory");
+                EditorGUILayout.LabelField("Inventory", EditorStyles.boldLabel);
                 EditorGUI.indentLevel++;
 
                 EditorGUILayout.BeginHorizontal();
