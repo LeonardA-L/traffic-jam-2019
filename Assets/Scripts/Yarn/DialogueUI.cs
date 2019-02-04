@@ -45,6 +45,8 @@ namespace tfj
         /// dialogue is active and to restore them when dialogue ends
         public RectTransform gameControlsContainer;
 
+        public Item itemOffer;
+
         void Awake()
         {
             // Start by hiding the container, line and option buttons
@@ -120,8 +122,16 @@ namespace tfj
             int i = 0;
             foreach (var optionString in optionsCollection.options)
             {
-                optionButtons[i].gameObject.SetActive(true);
-                optionButtons[i].GetComponentInChildren<Text>().text = optionString;
+                if (optionString == "Item")
+                { /*TODO show UI*/
+                    optionButtons[i].gameObject.SetActive(true);
+                    optionButtons[i].GetComponentInChildren<Text>().text = optionString;
+                }
+                else
+                {
+                    optionButtons[i].gameObject.SetActive(true);
+                    optionButtons[i].GetComponentInChildren<Text>().text = optionString;
+                }
                 i++;
             }
 
