@@ -55,7 +55,7 @@ namespace tfj
             Debug.Log(savePath);
             if (!File.Exists(savePath))
             {
-                Debug.LogError("Savegame doesn't exist");
+                Debug.LogWarning("Savegame doesn't exist");
                 if (_failOnError)
                     throw new FileNotFoundException();
                 GameState newGameState = new GameState();
