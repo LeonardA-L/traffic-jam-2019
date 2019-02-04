@@ -21,7 +21,7 @@ namespace LeikirTest
             // Fetch needed transforms
             m_cam = Camera.main.transform;
 
-            var character = (LeikirTest.CharacterController)FindObjectOfType(typeof(LeikirTest.CharacterController)); // Assume there is only one character
+            var character = (tfj.TFJCharacterController)FindObjectOfType(typeof(tfj.TFJCharacterController)); // Assume there is only one character
             // In an actual production, player character(s) would be dealt by a PlayerManager, which would expose a GetPlayers() accessor
             Debug.Assert(character != null, "No LeikirTest.CharacterController found on scene");
             m_character = character.transform;
