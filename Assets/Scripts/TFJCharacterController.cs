@@ -43,7 +43,10 @@ namespace tfj
 
         public void SetPlayerAction(Vector3 goal)
         {
-            /*TODO block when Dialogue is active*/
+            if(DialogueManager.Instance.IsActive)
+            {
+                return;
+            }
             m_playerMoving = true;
             m_playerAgent.SetDestination(goal);
         }

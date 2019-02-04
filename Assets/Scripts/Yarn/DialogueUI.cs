@@ -47,6 +47,16 @@ namespace tfj
 
         public Item itemOffer;
 
+        private bool isActive = false;
+
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+        }
+
         void Awake()
         {
             // Start by hiding the container, line and option buttons
@@ -70,6 +80,7 @@ namespace tfj
         {
             // Show the text
             lineText.gameObject.SetActive(true);
+            isActive = true;
 
             if (textSpeed > 0.0f)
             {
@@ -105,6 +116,8 @@ namespace tfj
             if (continuePrompt != null)
                 continuePrompt.SetActive(false);
 
+            isActive = false;
+
         }
 
         /// Show a list of options, and wait for the player to make a selection.
@@ -117,6 +130,7 @@ namespace tfj
                 Debug.LogWarning("There are more options to present than there are" +
                                  "buttons to present them in. This will cause problems.");
             }
+            isActive = true;
 
             // Display each option in a button, and make it visible
             int i = 0;
@@ -149,6 +163,7 @@ namespace tfj
             {
                 button.gameObject.SetActive(false);
             }
+            isActive = false;
         }
 
         /// Called by buttons to make a selection.

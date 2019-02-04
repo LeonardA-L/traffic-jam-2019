@@ -169,6 +169,8 @@ GameObject:
   - component: {fileID: 159460188}
   - component: {fileID: 159460189}
   - component: {fileID: 159460190}
+  - component: {fileID: 159460192}
+  - component: {fileID: 159460191}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -220,6 +222,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_distance: 12
+--- !u!114 &159460191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159460187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0834a245b8da0b4aa11704536aa211c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &159460192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159460187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ea6190e4f7bef46be051137789e5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acab7b0efadd69c43b9f43676434bf38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_groundLayer: Water
+  m_playerMoving: 0
 --- !u!1 &857431919
 GameObject:
   m_ObjectHideFlags: 0
