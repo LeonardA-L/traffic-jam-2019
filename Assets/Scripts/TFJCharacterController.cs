@@ -29,8 +29,22 @@ namespace tfj
         // Update is called once per frame
         void Update()
         {
+            // Fetch gamepad input
+            Vector2 joy = new Vector2(Input.GetAxisRaw(m_horizontalAxis), Input.GetAxisRaw(m_verticalAxis));
+            float magnitude = Mathf.Clamp(joy.magnitude, 0, 1);
+            joy.Normalize();
+            joy *= magnitude;
+
+            Vector3 camForward = m_camera.forward;
+            camForward.y = 0;
+            camForward.Normalize();
+
+            Vector3 command = transform.position
+                      + (joy.y * camForward + joy.x * m_camera.right)
+                      * m_commandOffset;
+
             // Detect click on ground
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 if (EventSystem.current.IsPointerOverGameObject())
                 {
@@ -42,27 +56,12 @@ namespace tfj
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer(m_groundLayer))
                     {
-                        SetPlayerAction(hit.point);
+                        command = hit.point;
                     }
                 }
             }
 
-            // Fetch gamepad input
-            Vector2 joy = new Vector2(Input.GetAxis(m_horizontalAxis), Input.GetAxis(m_verticalAxis));
-            float magnitude = Mathf.Clamp(joy.magnitude, 0, 1);
-            joy.Normalize();
-            joy *= magnitude;
-
-            Vector3 camForward = m_camera.forward;
-            camForward.y = 0;
-            //Debug.Assert(camForward.sqrMagnitude != 0);   // With the hack'n'slash view we assume we don't need this
-            camForward.Normalize();
-
-            m_command = transform.position
-                      + (joy.y * camForward + joy.x * m_camera.right)
-                      * m_commandOffset;
-
-            SetPlayerAction(m_command);
+            SetPlayerAction(command);
         }
 
         public void SetPlayerAction(Vector3 goal)
@@ -72,7 +71,21 @@ namespace tfj
                 return;
             }
             m_playerMoving = true;
-            m_playerAgent.SetDestination(goal);
+            Vector3 trajectory = goal - transform.position;
+            m_command = goal;
+
+            if (Vector3.Dot(transform.forward, trajectory) < 0)
+            {
+                if (Vector3.Dot(transform.right, trajectory) >= 0)
+                {
+                    m_command = transform.position + trajectory.magnitude * transform.right;
+                } else
+                {
+                    m_command = transform.position - trajectory.magnitude * transform.right;
+                }
+            }
+
+            m_playerAgent.SetDestination(m_command);
         }
 
         void OnDrawGizmos()
