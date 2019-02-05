@@ -1,0 +1,50 @@
+title: Jean
+tags: 
+colorID: 0
+position: 524,96
+---
+<<if visited("Jean") is false>>
+    Player: Hey, Jean.
+    Jean: Oh! Hi.
+    [[Yes|Jean.Yes]]
+    [[Maybe|Jean.Maybe]]
+    [[No|Jean.No]]
+    <<Add Inventory green_cube>>
+<<else>>
+    Player: Hey.
+    Jean: I can't find my green cube, do you have it?
+    [[No|Jean.Exit]]
+    [[Item|Jean.TakeCube]]
+<<endif>>
+===
+title: Jean.Exit
+tags: 
+colorID: 6
+position: 211,417
+---
+Jean: Ok Bye.
+===
+title: Jean.TakeCube
+tags: 
+colorID: 0
+position: 827,439
+---
+<<if offered_item() is "green_cube">>
+    Oh thank you!
+    <<Remove Inventory green_cube>>
+<<else>>
+    That's not my cube.
+<<endif>>
+===
+title: Jean.Yes
+---
+Jean: Ok Bye.
+===
+title: Jean.Maybe
+---
+Jean: Ok Bye.
+===
+title: Jean.No
+---
+Jean: Ok Bye.
+===
