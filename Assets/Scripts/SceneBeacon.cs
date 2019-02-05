@@ -3,72 +3,76 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneBeacon : MonoBehaviour
+namespace tfj
 {
-    public float m_enableRadius = 3;
-    public float m_disableRadius = 4;
-    public string m_sceneToLoad = "Scenes/";
-
-    private Transform m_character;
-    private bool m_enabled = false;
-    //private List<GameObject> m_loadedRoots;
-
-    void Start()
+    public class SceneBeacon : MonoBehaviour
     {
-        //m_loadedRoots = new List<GameObject>();
-        Debug.Assert(m_enableRadius < m_disableRadius, "enableRadius should be < to disableRadius", gameObject);
-        // TODO properly get player transform
-        var character = (LeikirTest.CharacterController)FindObjectOfType(typeof(LeikirTest.CharacterController)); // Assume there is only one character
-        Debug.Assert(character != null, "No LeikirTest.CharacterController found on scene");
-        m_character = character.transform;
-    }
+        public float m_enableRadius = 3;
+        public float m_disableRadius = 4;
+        public string m_sceneToLoad = "Scenes/";
 
-    // Update is called once per frame
-    void Update()
-    {
-        float sqrDist = (transform.position - m_character.position).sqrMagnitude;
-        if(!m_enabled && sqrDist <= m_enableRadius * m_enableRadius)
+        private Transform m_character;
+        private bool m_enabled = false;
+        //private List<GameObject> m_loadedRoots;
+
+        void Start()
         {
-            StartCoroutine(LoadSceneAsync(m_sceneToLoad));
-            m_enabled = true;
-        } else if(m_enabled && sqrDist >= m_disableRadius * m_disableRadius)
-        {
-            StartCoroutine(UnloadSceneAsync(m_sceneToLoad));
-            m_enabled = false;
+            //m_loadedRoots = new List<GameObject>();
+            Debug.Assert(m_enableRadius < m_disableRadius, "enableRadius should be < to disableRadius", gameObject);
+            // TODO properly get player transform
+            var character = (TFJCharacterController)FindObjectOfType(typeof(TFJCharacterController)); // Assume there is only one character
+            Debug.Assert(character != null, "No TFJCharacterController found on scene");
+            m_character = character.transform;
         }
-    }
 
-    IEnumerator LoadSceneAsync(string _scene)
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_scene, LoadSceneMode.Additive);
-
-        while (!asyncLoad.isDone)
+        // Update is called once per frame
+        void Update()
         {
-            yield return null;
+            float sqrDist = (transform.position - m_character.position).sqrMagnitude;
+            if (!m_enabled && sqrDist <= m_enableRadius * m_enableRadius)
+            {
+                StartCoroutine(LoadSceneAsync(m_sceneToLoad));
+                m_enabled = true;
+            }
+            else if (m_enabled && sqrDist >= m_disableRadius * m_disableRadius)
+            {
+                StartCoroutine(UnloadSceneAsync(m_sceneToLoad));
+                m_enabled = false;
+            }
         }
-        /*
-        Scene loaded = SceneManager.GetSceneByName(_scene);
-        if (!loaded.isLoaded)
-            yield return null;
-        if(!loaded.IsValid())
-            yield return null;
-        var roots = loaded.GetRootGameObjects();
-        m_loadedRoots.AddRange(roots);
 
-        foreach(GameObject root in m_loadedRoots)
+        IEnumerator LoadSceneAsync(string _scene)
         {
-            Debug.Log(root.name);
-            root.transform.position += transform.position;
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_scene, LoadSceneMode.Additive);
+
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
+            /*
+            Scene loaded = SceneManager.GetSceneByName(_scene);
+            if (!loaded.isLoaded)
+                yield return null;
+            if(!loaded.IsValid())
+                yield return null;
+            var roots = loaded.GetRootGameObjects();
+            m_loadedRoots.AddRange(roots);
+
+            foreach(GameObject root in m_loadedRoots)
+            {
+                Debug.Log(root.name);
+                root.transform.position += transform.position;
+            }
+            */
         }
-        */
-    }
-    IEnumerator UnloadSceneAsync(string _scene)
-    {
-        AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(_scene);
-
-        while (!asyncLoad.isDone)
+        IEnumerator UnloadSceneAsync(string _scene)
         {
-            yield return null;
+            AsyncOperation asyncLoad = SceneManager.UnloadSceneAsync(_scene);
+
+            while (!asyncLoad.isDone)
+            {
+                yield return null;
+            }
         }
     }
 }
