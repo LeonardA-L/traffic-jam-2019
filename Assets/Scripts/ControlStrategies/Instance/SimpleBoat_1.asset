@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73b12c0f9137974db6f6790aa5f8349, type: 3}
+  m_Name: SimpleBoat_1
+  m_EditorClassIdentifier: 
+  m_rotationSpeed: 120
+  m_maxSpeed: 12
+  m_acceleration: 6

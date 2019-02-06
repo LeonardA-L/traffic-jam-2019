@@ -13,6 +13,9 @@ namespace tfj
         public string m_horizontalAxis = "Horizontal";
         public Transform m_camera;
         public float m_commandOffset = 7;
+
+        public ControlStrategy m_controlStrategy;
+
         [SerializeField]
         private bool m_playerMoving = false;
         private NavMeshAgent m_playerAgent;
@@ -24,6 +27,14 @@ namespace tfj
         {
             m_playerAgent = GetComponent<NavMeshAgent>();
             Debug.Assert(m_camera != null, "No Camera provided.", this);
+            Debug.Assert(m_controlStrategy != null, "No Control Strategy provided.", this);
+            m_controlStrategy.Init(this);
+        }
+
+        private void OnValidate()
+        {
+            Debug.Assert(m_controlStrategy != null, "No Control Strategy provided.", this);
+            m_controlStrategy.Init(this);
         }
 
         // Update is called once per frame
@@ -70,22 +81,11 @@ namespace tfj
             {
                 return;
             }
+
             m_playerMoving = true;
-            Vector3 trajectory = goal - transform.position;
             m_command = goal;
 
-            if (Vector3.Dot(transform.forward, trajectory) < 0)
-            {
-                if (Vector3.Dot(transform.right, trajectory) >= 0)
-                {
-                    m_command = transform.position + trajectory.magnitude * transform.right;
-                } else
-                {
-                    m_command = transform.position - trajectory.magnitude * transform.right;
-                }
-            }
-
-            m_playerAgent.SetDestination(m_command);
+            m_controlStrategy.SetPlayerGoal(m_command);
         }
 
         void OnDrawGizmos()
