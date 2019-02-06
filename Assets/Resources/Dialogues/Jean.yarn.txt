@@ -1,26 +1,18 @@
 title: Jean
 tags: 
 colorID: 0
-position: 524,96
+position: 473,25
 ---
-<<if visited("Jean") is false>>
-    Player: Hey, Jean.
-    Jean: Oh! Hi.
-    [[Yes|Jean.Yes]]
-    [[Maybe|Jean.Maybe]]
-    [[No|Jean.No]]
-    <<Add Inventory green_cube>>
-<<else>>
-    Player: Hey.
-    Jean: I can't find my green cube, do you have it?
-    [[No|Jean.Exit]]
-    [[Item|Jean.TakeCube]]
-<<endif>>
+    Jean: Woah ! This tubular device seems very empty to fill bottles.
+    [[Sure$, this luxury model even have buttons to select the pouring quantity |Jean.Yes]]
+    [[Not really$, but I guess it could work for that purpose. |Jean.Maybe]]
+    [[Well... No$,Sorry but I think this is meant to do something else|Jean.No]]
+
 ===
 title: Jean.Exit
 tags: 
 colorID: 6
-position: 211,417
+position: 967,153
 ---
 Jean: Ok Bye.
 ===
@@ -37,14 +29,23 @@ position: 827,439
 <<endif>>
 ===
 title: Jean.Yes
+tags: 
+colorID: 0
+position: -17,423
 ---
 Jean: Ok Bye.
 ===
 title: Jean.Maybe
+tags: 
+colorID: 0
+position: 451,488
 ---
 Jean: Ok Bye.
 ===
 title: Jean.No
+tags: 
+colorID: 0
+position: 11,173
 ---
 Jean: Ok Bye.
 ===
