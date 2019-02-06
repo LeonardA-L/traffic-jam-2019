@@ -45,3 +45,8 @@ YarnSpinner/
 YarnSpinner.meta
 EZ Camera Shake/
 EZ Camera Shake.meta
+EZ Camera Shake*
+
+*.zip
+_TerrainAutoUpgrade*
+StylizedWaterShader*
