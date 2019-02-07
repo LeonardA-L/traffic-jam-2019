@@ -13,6 +13,9 @@ namespace tfj
         public float m_maxSpeed = 12;
         public float m_acceleration = 6;
 
+        public float m_maxYawSpeed = 50;
+        public float m_maxRollFromYawSpeed = 10;
+
         protected NavMeshAgent m_playerAgent;
         protected TFJCharacterController m_controller;
         protected Transform m_transform;
@@ -24,5 +27,21 @@ namespace tfj
             m_transform = _controller.transform;
         }
         public abstract void SetPlayerGoal(Vector3 _goal);
+
+        public float MaxYawSpeed
+        {
+            get
+            {
+                return m_maxYawSpeed;
+            }
+        }
+
+        public float MaxRollFromYawSpeed
+        {
+            get
+            {
+                return m_maxRollFromYawSpeed;
+            }
+        }
     }
 }

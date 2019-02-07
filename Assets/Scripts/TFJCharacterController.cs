@@ -94,5 +94,13 @@ namespace tfj
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(m_command, 1);
         }
+
+        public ControlStrategy ControlStrategy
+        {
+            get
+            {
+                return m_controlStrategy;
+            }
+        }
     }
 }
