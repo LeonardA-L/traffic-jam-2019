@@ -1,0 +1,67 @@
+title: Start
+tags: 
+colorID: 0
+position: -210,73
+---
+<<if has_item("casquette") is true>>
+Gardienne: Coucou !
+Gardienne: Comment ça va ?
+Gardienne: échange sur casquette
+[[Aller|123]]
+<<endif>>
+===
+title: 123
+tags: 
+colorID: 0
+position: 107,111
+---
+Ornithologue: Coucou aussi
+Ornithologue: Moi aussi ça m'intéresse
+Gardienne: Oh tu m'emmerdes
+[[Oui aller tej$Accepter la proposition de la Gardienne|PropGardienne1]]
+[[Ah oui ?$Écouter la proposition de l'Ornithologue|PropOrnithologue1]]
+===
+title: PropOrnithologue1
+tags: 
+colorID: 0
+position: 76,368
+---
+Ornithologue: Alors en fait voilà c'est de la bombe
+Ornithologue: Du coup ça c'est mieux
+Gardienne: Nan tu dis des conneries
+[[Ouais c'est chelou$Accepter la proposition de la Gardienne quand même|PropGardienne2]]
+[[Ah ouais j'avoue$Accepter la proposition de l'Ornithologue|PropOrnithologue2]]
+===
+title: PropGardienne1
+tags: 
+colorID: 0
+position: 466,191
+---
+<<Remove Inventory casquette>>
+Gardienne: Cimer Albert
+Gardienne: Voilà une lentille de phare
+<<Add Inventory lentille>>
+Gardienne: Finir le dialogue
+===
+title: PropOrnithologue2
+tags: 
+colorID: 0
+position: 86,613
+---
+Ornithologue: Tiens voilà des oeufs de mouette
+<<Add Inventory oeuf_mouette>>
+Ornithologue: Tu le regretteras pas
+<<Remove Inventory casquette>>
+Ornithologue: À plus dans le bus !
+===
+title: PropGardienne2
+tags: 
+colorID: 0
+position: 480,480
+---
+Gardienne: Ah je savais que ma propal roxait du ponay
+<<Remove Inventory casquette>>
+Gardienne: Voilà une lentille de phare donc
+<<Add Inventory lentille>>
+Gardienne: Finir le dialogue 2
+===
