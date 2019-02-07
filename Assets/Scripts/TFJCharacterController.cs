@@ -46,16 +46,8 @@ namespace tfj
             joy.Normalize();
             joy *= magnitude;
 
-            Vector3 camForward = m_camera.forward;
-            camForward.y = 0;
-            camForward.Normalize();
-
-            Vector3 command = transform.position
-                      + (joy.y * camForward + joy.x * m_camera.right)
-                      * m_commandOffset;
-
             // Detect click on ground
-            if (Input.GetMouseButton(0))
+            if (magnitude == 0 && Input.GetMouseButton(0))
             {
                 if (EventSystem.current.IsPointerOverGameObject())
                 {
@@ -67,12 +59,21 @@ namespace tfj
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer(m_groundLayer))
                     {
-                        command = hit.point;
+                        SetPlayerAction(hit.point);
                     }
                 }
+            } else if(magnitude != 0)
+            {
+                Vector3 camForward = m_camera.forward;
+                camForward.y = 0;
+                camForward.Normalize();
+
+                Vector3 command = transform.position
+                          + (joy.y * camForward + joy.x * m_camera.right)
+                          * m_commandOffset;
+                SetPlayerAction(command);
             }
 
-            SetPlayerAction(command);
         }
 
         public void SetPlayerAction(Vector3 goal)
