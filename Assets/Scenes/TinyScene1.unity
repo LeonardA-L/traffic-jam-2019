@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.2968731, g: 0.63374233, b: 0.9937158, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -111,7 +111,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 3fe83a7cc5500ff4d9ac4ab09201f917, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7830a0db0a39d8c4ea84da8a5838a326, type: 2}
 --- !u!1001 &10049618
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -353,6 +353,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 57.21335
       objectReference: {fileID: 0}
+    - target: {fileID: 5055238567661061958, guid: d6cf8e2ff4f8b1449aa089a9377323aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf8e2ff4f8b1449aa089a9377323aa, type: 3}
 --- !u!4 &848727993 stripped
@@ -433,6 +438,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 52.78904
       objectReference: {fileID: 0}
+    - target: {fileID: 5055238567661061958, guid: d6cf8e2ff4f8b1449aa089a9377323aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf8e2ff4f8b1449aa089a9377323aa, type: 3}
 --- !u!1001 &1657534578
@@ -506,6 +516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 53.65239
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055238567661061958, guid: d6cf8e2ff4f8b1449aa089a9377323aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf8e2ff4f8b1449aa089a9377323aa, type: 3}
@@ -625,6 +640,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 57.21335
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055238567661061958, guid: d6cf8e2ff4f8b1449aa089a9377323aa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6cf8e2ff4f8b1449aa089a9377323aa, type: 3}
