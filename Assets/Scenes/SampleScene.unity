@@ -323,6 +323,7 @@ MonoBehaviour:
     m_newGame: 0
     m_inventorySerialized:
       m_itemsIds: []
+  m_gameMode: 0
 --- !u!114 &159460190
 MonoBehaviour:
   m_ObjectHideFlags: 0

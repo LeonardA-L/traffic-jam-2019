@@ -14,7 +14,7 @@ namespace tfj
 
         public string m_savePath = "/TFJ_state.sav" /*TODO*/;
         public GameState m_gameState;
-        public GameMode m_gameMode = GameManager.GameMode.TRADE;
+        public GameMode m_gameMode = GameManager.GameMode.EXPLORATION;
 
         // Start is called before the first frame update
         void Start()
