@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace tfj
 {
@@ -39,6 +40,8 @@ namespace tfj
         private float m_transitionDuration;
         private float m_transitionTime;
 
+        private Dictionary<string, Camera> m_cameras = new Dictionary<string, Camera>();
+
         protected CameraManager() { }
 
         void Start()
@@ -51,7 +54,7 @@ namespace tfj
             m_actualLerp = m_positionLerp;
             m_defaultHolderRotation = m_camHolder.rotation;
 
-            Debug.Assert(m_camHolder != null, "No CameraHolder provided");    // TODO get it via a PlayerManager
+            Debug.Assert(m_camHolder != null, "No CameraHolder provided");
         }
 
         void Update()
@@ -107,6 +110,27 @@ namespace tfj
             m_transitionDuration = _transitionDuration;
             m_transitionTime = 0;
             m_state = CameraState.SCENE;
+        }
+
+        public void RegisterCamera(string _name, Camera _cam)
+        {
+            m_cameras.Add(_name, _cam);
+        }
+
+        public void SwitchToTradeMode()
+        {
+            Debug.Assert(m_cameras.ContainsKey("exploration"), "No Exploration camera registered");
+            Debug.Assert(m_cameras.ContainsKey("trade"), "No Trade camera registered");
+            m_cameras["exploration"].gameObject.SetActive(false);
+            m_cameras["trade"].gameObject.SetActive(true);
+        }
+
+        public void SwitchToFollowMode()
+        {
+            Debug.Assert(m_cameras.ContainsKey("exploration"), "No Exploration camera registered");
+            Debug.Assert(m_cameras.ContainsKey("trade"), "No Trade camera registered");
+            m_cameras["exploration"].gameObject.SetActive(true);
+            m_cameras["trade"].gameObject.SetActive(false);
         }
     }
 }
