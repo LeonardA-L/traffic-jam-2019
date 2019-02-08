@@ -1,19 +1,19 @@
 title: Start
 tags: 
 colorID: 0
-position: -210,73
+position: -275,104
 ---
 <<if has_item("casquette") is true>>
 Gardienne: Coucou !
 Gardienne: Comment ça va ?
 Gardienne: échange sur casquette
-[[Aller|123]]
+[[Dites m'en plus|ArriveeOrnithologue]]
 <<endif>>
 ===
-title: 123
+title: ArriveeOrnithologue
 tags: 
 colorID: 0
-position: 107,111
+position: 77,105
 ---
 Ornithologue: Coucou aussi
 Ornithologue: Moi aussi ça m'intéresse
@@ -35,7 +35,7 @@ Gardienne: Nan tu dis des conneries
 title: PropGardienne1
 tags: 
 colorID: 0
-position: 466,191
+position: 436,104
 ---
 <<Remove Inventory casquette>>
 Gardienne: Cimer Albert
@@ -46,7 +46,7 @@ Gardienne: Finir le dialogue
 title: PropOrnithologue2
 tags: 
 colorID: 0
-position: 86,613
+position: 436,657
 ---
 Ornithologue: Tiens voilà des oeufs de mouette
 <<Add Inventory oeuf_mouette>>
@@ -57,7 +57,7 @@ Ornithologue: À plus dans le bus !
 title: PropGardienne2
 tags: 
 colorID: 0
-position: 480,480
+position: 435,372
 ---
 Gardienne: Ah je savais que ma propal roxait du ponay
 <<Remove Inventory casquette>>

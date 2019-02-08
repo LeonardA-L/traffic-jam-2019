@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Casquette
   m_EditorClassIdentifier: 
   m_id: casquette
-  m_view3D: {fileID: 0}
-  m_viewSprite: 
+  m_view3D: {fileID: 1131701187514312885, guid: 134dd135f9b574b469ed5a5eb0749afc,
+    type: 3}
+  m_viewSprite: Sprites/casquette
