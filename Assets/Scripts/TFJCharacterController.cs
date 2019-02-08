@@ -40,6 +40,10 @@ namespace tfj
         // Update is called once per frame
         void Update()
         {
+            if (DialogueManager.Instance.IsActive || GameManager.Instance.CurrentGameMode == GameManager.GameMode.TRADE)
+            {
+                return;
+            }
             // Fetch gamepad input
             Vector2 joy = new Vector2(Input.GetAxisRaw(m_horizontalAxis), Input.GetAxisRaw(m_verticalAxis));
             float magnitude = Mathf.Clamp(joy.magnitude, 0, 1);

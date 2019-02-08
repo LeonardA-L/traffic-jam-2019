@@ -3,6 +3,12 @@ tags:
 colorID: 0
 position: -275,104
 ---
+Gardienne: Avant toute chose laisse moi te montrer ma super casquette
+<<Show Trademat casquette 0>>
+Gardienne: Elle est trop swaggée n'est-ce pas ?
+Gardienne: Hein ?
+Gardienne: Allez c'est bon je la récupère bolosse
+<<Hide Trademat 0>>
 <<if has_item("casquette") is true>>
 Gardienne: Coucou !
 Gardienne: Comment ça va ?

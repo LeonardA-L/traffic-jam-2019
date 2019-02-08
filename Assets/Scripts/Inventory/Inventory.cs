@@ -76,6 +76,11 @@ namespace tfj
             return HasItem(m_references[_itemID]);
         }
 
+        public Item GetItemReferenceById(string _itemID)
+        {
+            return m_references[_itemID];
+        }
+
         public List<Item> Items
         {
             get

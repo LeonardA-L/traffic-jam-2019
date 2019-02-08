@@ -42,11 +42,11 @@ namespace tfj
             GUILayout.BeginHorizontal();
             if (GUILayout.Button("Switch to Trade View"))
             {
-                CameraManager.Instance.SwitchToTradeMode();
+                GameManager.Instance.SwitchToTradeMode();
             }
             if (GUILayout.Button("Switch to Exploration View"))
             {
-                CameraManager.Instance.SwitchToFollowMode();
+                GameManager.Instance.SwitchToExplorationMode();
             }
             GUILayout.EndHorizontal();
         }
