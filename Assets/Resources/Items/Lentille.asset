@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Lentille
   m_EditorClassIdentifier: 
   m_id: lentille
-  m_view3D: {fileID: 0}
+  m_view3D: {fileID: 5480269148587934039, guid: be40966e795cd6e4d9e28937f3cb62ab,
+    type: 3}
   m_viewSprite: Sprites/lentille

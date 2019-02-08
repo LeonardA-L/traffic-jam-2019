@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: OeufsMouette
   m_EditorClassIdentifier: 
   m_id: oeuf_mouette
-  m_view3D: {fileID: 0}
+  m_view3D: {fileID: 3963613257847195206, guid: e9c24c7a3e4266e4cbc57680a4a9e424,
+    type: 3}
   m_viewSprite: Sprites/oeuf_mouette
