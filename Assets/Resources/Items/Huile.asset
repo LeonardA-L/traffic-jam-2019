@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1b98c2b7110c6849b4747d12793e8fd, type: 3}
-  m_Name: New Item
+  m_Name: Huile
   m_EditorClassIdentifier: 
-  m_id: 
-  m_view3D: {fileID: 0}
-  m_viewSprite: 
+  m_id: huile
+  m_view3D: {fileID: 1551405905995074715, guid: 7ce9c2d61158e2042be73cc28314a04d,
+    type: 3}
+  m_viewSprite: Sprites/plh
