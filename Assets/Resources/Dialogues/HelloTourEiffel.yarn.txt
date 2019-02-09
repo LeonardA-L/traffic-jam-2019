@@ -1,0 +1,7 @@
+title: Start.TourEiffel
+tags: 
+colorID: 0
+position: 540,260
+---
+[[Start.CasquetteTourEiffel]]
+===
