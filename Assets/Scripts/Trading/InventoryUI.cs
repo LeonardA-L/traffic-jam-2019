@@ -43,6 +43,7 @@ public class InventoryUI : MonoBehaviour
             {
                 Destroy(itemUI.m_uiElement.gameObject);
                 m_items.Remove(itemUI);
+                break;
             }
         }
 
