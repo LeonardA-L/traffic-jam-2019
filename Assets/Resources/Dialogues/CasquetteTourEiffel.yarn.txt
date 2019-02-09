@@ -8,6 +8,8 @@ Gardienne: Coucou !
 Gardienne: Comment ça va ?
 Gardienne: échange sur casquette
 [[Dites m'en plus$Ça a l'air intéressant votre truc|ArriveeOrnithologue]]
+<<else>>
+[[Oh une casquette !$Pratique de trouver des choses par terre quand même|SUPPRIMER]]
 <<endif>>
 ===
 title: ArriveeOrnithologue
@@ -63,6 +65,7 @@ Ornithologue: Tiens prend donc les oeufs de mouette
 Ornithologue: Tu le regretteras pas
 <<Remove Inventory casquette>>
 Ornithologue: À plus dans le bus !
+<<Hide Trademat 0>>
 ===
 title: PropGardienne2
 tags: 
@@ -72,8 +75,10 @@ position: 462,659
 Gardienne: Ah je savais que ma propal roxait du ponay
 <<Remove Inventory casquette>>
 Gardienne: Voilà une lentille de phare donc
+<<Hide Trademat 0>>
 <<Add Inventory lentille>>
 Gardienne: Finir le dialogue 2
+<<Hide Trademat 2>>
 ===
 title: ContrePropOrnithologue1
 tags: 
@@ -102,4 +107,13 @@ Ornithologue: Non ça pue du cul
 [[Bon d'accord$Je t'échanges la casquette alors|PropOrnithologue2]]
 [[Laisse Tomber$Je vais prendre la lentille du coup|PropGardienne2]]
 <<endif>>
+===
+title: SUPPRIMER
+tags: 
+colorID: 0
+position: -1068,497
+---
+<<Add Item casquette>>
+<<set $know_need_oeufs true>>
+[[ArriveeOrnithologue]]
 ===
