@@ -15,4 +15,4 @@ MonoBehaviour:
   m_id: red_cube
   m_view3D: {fileID: 1563452206220652882, guid: 5a07cf9f249e74842a3c6a990c7ae345,
     type: 3}
-  m_viewSprite: 
+  m_viewSprite: Sprites/plh
