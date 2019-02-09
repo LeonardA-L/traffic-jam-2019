@@ -114,6 +114,6 @@ colorID: 0
 position: -1068,497
 ---
 <<Add Item casquette>>
-<<set $know_need_oeufs true>>
-[[ArriveeOrnithologue]]
+<<set $know_need_oeufs to true>>
+[[Start.CasquetteTourEiffel]]
 ===
