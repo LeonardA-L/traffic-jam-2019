@@ -45,7 +45,7 @@ namespace tfj
                 return;
             }
             // Fetch gamepad input
-            Vector2 joy = new Vector2(Input.GetAxisRaw(m_horizontalAxis), Input.GetAxisRaw(m_verticalAxis));
+            Vector2 joy = new Vector2(Input.GetAxis(m_horizontalAxis), Input.GetAxis(m_verticalAxis));
             float magnitude = Mathf.Clamp(joy.magnitude, 0, 1);
             joy.Normalize();
             joy *= magnitude;
