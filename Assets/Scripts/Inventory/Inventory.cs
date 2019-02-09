@@ -4,109 +4,116 @@ using UnityEngine;
 
 namespace tfj
 {
-    [System.Serializable]
-    public class Inventory
-    {
-        [SerializeField]
-        private List<Item> m_items = new List<Item>();
+	[System.Serializable]
+	public class Inventory
+	{
+		private InventoryUI m_inventoryUI;
 
-        [System.NonSerialized]
-        private Dictionary<string, Item> m_references;
+		[SerializeField]
+		private List<Item> m_items = new List<Item>();
 
-        public void Init(InventorySerialized _serialized)
-        {
-            m_items.Clear();
+		[System.NonSerialized]
+		private Dictionary<string, Item> m_references;
+		public void Init(InventorySerialized _serialized)
+		{
+			m_items.Clear();
 
-            var items = Resources.LoadAll("Items", typeof(Item));
-            m_references = new Dictionary<string, Item>();
-            foreach (var i in items)
-            {
-                Item item = (Item)i;
-                m_references.Add(item.Id, item);
-            }
+			var items = Resources.LoadAll("Items", typeof(Item));
+			m_references = new Dictionary<string, Item>();
+			foreach (var i in items)
+			{
+				Item item = (Item)i;
+				m_references.Add(item.Id, item);
+			}
 
-            foreach (var id in _serialized.IDs)
-            {
-                m_items.Add(m_references[id]);
-            }
-        }
+			foreach (var id in _serialized.IDs)
+			{
+				m_items.Add(m_references[id]);
+			}
 
-        public void Add(Item _item)
-        {
-            m_items.Add(_item);
-        }
+			m_inventoryUI = GameObject.FindObjectOfType<InventoryUI>();
+			Debug.Assert(m_inventoryUI != null, "No InventoryUI component on scene.");
+		}
 
-        public void Add(string _itemID)
-        {
-            if (!m_references.ContainsKey(_itemID))
-            {
-                Debug.LogError("No item with ID " + _itemID);
-                return;
-            }
-            Add(m_references[_itemID]);
-        }
+		public void Add(Item _item)
+		{
+			m_items.Add(_item);
+			m_inventoryUI.AddItem(_item);
+		}
 
-        public void Remove(Item _item)
-        {
-            m_items.Remove(_item);
-        }
+		public void Add(string _itemID)
+		{
+			if (!m_references.ContainsKey(_itemID))
+			{
+				Debug.LogError("No item with ID " + _itemID);
+				return;
+			}
+			Add(m_references[_itemID]);
+		}
 
-        public void Remove(string _itemID)
-        {
-            if (!m_references.ContainsKey(_itemID))
-            {
-                Debug.LogError("No item with ID " + _itemID);
-                return;
-            }
-            Remove(m_references[_itemID]);
-        }
+		public void Remove(Item _item)
+		{
+			m_items.Remove(_item);
+			m_inventoryUI.RemoveItem(_item);
 
-        public bool HasItem(Item _item)
-        {
-            return m_items.Contains(_item);
-        }
+		}
 
-        public bool HasItem(string _itemID)
-        {
-            if (!m_references.ContainsKey(_itemID))
-            {
-                Debug.LogError("No item with ID " + _itemID);
-                return false;
-            }
-            return HasItem(m_references[_itemID]);
-        }
+		public void Remove(string _itemID)
+		{
+			if (!m_references.ContainsKey(_itemID))
+			{
+				Debug.LogError("No item with ID " + _itemID);
+				return;
+			}
+			Remove(m_references[_itemID]);
+		}
 
-        public Item GetItemReferenceById(string _itemID)
-        {
-            return m_references[_itemID];
-        }
+		public bool HasItem(Item _item)
+		{
+			return m_items.Contains(_item);
+		}
 
-        public List<Item> Items
-        {
-            get
-            {
-                return m_items;
-            }
-        }
-    }
+		public bool HasItem(string _itemID)
+		{
+			if (!m_references.ContainsKey(_itemID))
+			{
+				Debug.LogError("No item with ID " + _itemID);
+				return false;
+			}
+			return HasItem(m_references[_itemID]);
+		}
 
-    [System.Serializable]
-    public class InventorySerialized
-    {
-        [SerializeField]
-        private List<string> m_itemsIds = new List<string>();
+		public Item GetItemReferenceById(string _itemID)
+		{
+			return m_references[_itemID];
+		}
 
-        public void Add(string _id)
-        {
-            m_itemsIds.Add(_id);
-        }
+		public List<Item> Items
+		{
+			get
+			{
+				return m_items;
+			}
+		}
+	}
 
-        public List<string> IDs
-        {
-            get
-            {
-                return m_itemsIds;
-            }
-        }
-    }
+	[System.Serializable]
+	public class InventorySerialized
+	{
+		[SerializeField]
+		private List<string> m_itemsIds = new List<string>();
+
+		public void Add(string _id)
+		{
+			m_itemsIds.Add(_id);
+		}
+
+		public List<string> IDs
+		{
+			get
+			{
+				return m_itemsIds;
+			}
+		}
+	}
 }

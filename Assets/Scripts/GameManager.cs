@@ -49,10 +49,12 @@ namespace tfj
             m_gameState.Save(m_savePath);
         }
 
-        public void SwitchToTradeMode()
+        public void SwitchToTradeMode(string _node = null)
         {
             m_gameMode = GameMode.TRADE;
             CameraManager.Instance.SwitchToTradeMode();
+            if(_node != null)
+                FindObjectOfType<Yarn.Unity.DialogueRunner>().StartDialogue(_node);
         }
 
         public void SwitchToExplorationMode()
