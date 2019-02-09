@@ -40,7 +40,7 @@ namespace tfj
         // Update is called once per frame
         void Update()
         {
-            if (DialogueManager.Instance.IsActive || GameManager.Instance.CurrentGameMode == GameManager.GameMode.TRADE)
+            if (!PlayerManager.Instance.AllowMovement || GameManager.Instance.CurrentGameMode == GameManager.GameMode.TRADE)
             {
                 return;
             }
@@ -82,7 +82,7 @@ namespace tfj
 
         public void SetPlayerAction(Vector3 goal)
         {
-            if(DialogueManager.Instance.IsActive)
+            if(!PlayerManager.Instance.AllowMovement)
             {
                 return;
             }

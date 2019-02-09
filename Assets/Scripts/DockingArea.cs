@@ -6,13 +6,13 @@ namespace tfj
 {
     public class DockingArea : MonoBehaviour
     {
-        public string m_dialogNode;
         private bool m_triggered = false;
         private bool m_inRange = false;
+        private DockingStrategy m_dockingStrategy;
         // Start is called before the first frame update
         void Start()
         {
-
+            m_dockingStrategy = GetComponent<DockingStrategy>();
         }
 
         void Update()
@@ -21,7 +21,8 @@ namespace tfj
             {
                 m_triggered = true;
                 UIManager.Instance.HideTooltip();
-                GameManager.Instance.SwitchToTradeMode(m_dialogNode);
+                PlayerManager.Instance.SetAllowMovement(false);
+                m_dockingStrategy.Execute();
             }
         }
 

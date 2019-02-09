@@ -12,7 +12,7 @@ namespace tfj
         public enum CameraState
         {
             FOLLOW,
-            SCENE
+            ANIMATED
         }
 
         [SerializeField]
@@ -30,17 +30,12 @@ namespace tfj
         public Transform m_camHolder;
         private Transform m_character;
 
-        private Quaternion m_defaultHolderRotation;
-
-        private Transform m_sceneView;
-        private Vector3 m_lastCurveOffset;
-        private Vector3 m_curveOffsetbase;
-        private float m_sceneInitialDistance;
-        private float m_sceneViewOffsetForce;
-        private float m_transitionDuration;
-        private float m_transitionTime;
+        private Quaternion m_defaultRotation;
 
         private Dictionary<string, Camera> m_cameras = new Dictionary<string, Camera>();
+
+        public Animator m_animator;
+        private DockingStrategy m_dockingStrategy;   // TODO should be agnostic and use a delegate
 
         protected CameraManager() { }
 
@@ -52,9 +47,11 @@ namespace tfj
 
             m_currentDistance = m_distance;
             m_actualLerp = m_positionLerp;
-            m_defaultHolderRotation = m_camHolder.rotation;
+            m_defaultRotation = transform.rotation;
 
             Debug.Assert(m_camHolder != null, "No CameraHolder provided");
+
+            m_animator.enabled = false;
         }
 
         void Update()
@@ -63,33 +60,11 @@ namespace tfj
             {
                 case CameraState.FOLLOW:
                     // Move the camera to aim at the character. The camera does not rotate.
-                    m_camHolder.transform.position = Vector3.Lerp(m_camHolder.transform.position, m_character.position - m_camHolder.forward * m_distance, m_actualLerp);
-                    m_camHolder.transform.rotation = Quaternion.Slerp(m_camHolder.transform.rotation, m_defaultHolderRotation, 0.005f);
+                    transform.position = Vector3.Lerp(transform.position, m_character.position, m_actualLerp);
+                    m_camHolder.transform.position = Vector3.Lerp(m_camHolder.transform.position, transform.position - m_camHolder.transform.forward * m_currentDistance, m_actualLerp);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, m_defaultRotation, 0.005f);
                 break;
-                case CameraState.SCENE:
-
-                    m_transitionTime += Time.deltaTime;
-                    if (m_transitionTime > m_transitionDuration)
-                    {
-                        m_transitionTime = m_transitionDuration;
-                    }
-
-                    //lerp!
-                    float t = m_transitionTime / m_transitionDuration;
-                    //t = t * t * (3f - 2f * t);
-                    t = t * t * t * (t * (6f * t - 15f) + 10f);
-
-                    m_lastCurveOffset = m_curveOffsetbase;
-                    //m_lastCurveOffset.y = 0;
-                    m_lastCurveOffset.Normalize();
-                    m_lastCurveOffset *= m_sceneViewOffsetForce * Mathf.Sin(m_transitionTime / m_transitionDuration * Mathf.PI);
-                    //m_lastCurveOffset = Vector3.zero;
-                    //Debug.Log(curveOffset);
-
-
-                    m_camHolder.transform.position = Vector3.Lerp(m_camHolder.transform.position, m_sceneView.position, t) + m_lastCurveOffset;
-                    m_camHolder.transform.rotation = Quaternion.Slerp(m_camHolder.transform.rotation, m_sceneView.rotation, t);
-                break;
+                
             }
         }
 
@@ -97,19 +72,7 @@ namespace tfj
         {
             m_currentDistance = _distance == 0 ? m_distance : _distance;
             m_actualLerp = _posLerp == 0 ? m_positionLerp : _posLerp;
-            m_transitionTime = 0;
             m_state = CameraState.FOLLOW;
-        }
-
-        public void SetSceneState(Transform _sceneView, Vector3 _curveOffsetBase, float _transitionDuration, float _offsetForce = 60)
-        {
-            m_sceneView = _sceneView;
-            m_sceneInitialDistance = (_sceneView.position - transform.position).magnitude;
-            m_sceneViewOffsetForce = _offsetForce;
-            m_curveOffsetbase = _curveOffsetBase;
-            m_transitionDuration = _transitionDuration;
-            m_transitionTime = 0;
-            m_state = CameraState.SCENE;
         }
 
         public void RegisterCamera(string _name, Camera _cam)
@@ -132,5 +95,19 @@ namespace tfj
             m_cameras["exploration"].gameObject.SetActive(true);
             m_cameras["trade"].gameObject.SetActive(false);
         }
+
+        public void SetAnimState(string _animTrigger, DockingStrategy _dockingStrategy)
+        {
+            m_state = CameraState.ANIMATED;
+            m_animator.enabled = true;
+            m_animator.SetTrigger(_animTrigger);
+            m_dockingStrategy = _dockingStrategy;
+        }
+
+        public void EndAnimState()
+        {
+            StartCoroutine(BirdView.EndBirdEyeView(m_dockingStrategy));   // TODO should be agnostic and use a delegate
+        }
+
     }
 }

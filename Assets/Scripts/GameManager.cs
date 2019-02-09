@@ -57,7 +57,6 @@ namespace tfj
             m_yarnStorage.Clear();
             foreach (var variable in m_gameState.m_yarnVariables)
             {
-                Debug.Log(variable.m_key);
                 m_yarnStorage.Add(variable.m_key, variable.m_value);
             }
         }
@@ -75,12 +74,14 @@ namespace tfj
             CameraManager.Instance.SwitchToTradeMode();
             if(_node != null)
                 m_dialogRunner.StartDialogue(_node);
+            PlayerManager.Instance.SetAllowMovement(false);
         }
 
         public void SwitchToExplorationMode()
         {
             m_gameMode = GameMode.EXPLORATION;
             CameraManager.Instance.SwitchToFollowMode();
+            PlayerManager.Instance.SetAllowMovement(true);
         }
 
         public Inventory Inventory {

@@ -81,6 +81,7 @@ namespace tfj
 			// Show the text
 			lineText.gameObject.SetActive(true);
 			isActive = true;
+            PlayerManager.Instance.SetAllowMovement(false);
 
 			if (textSpeed > 0.0f)
 			{
@@ -117,6 +118,7 @@ namespace tfj
 				continuePrompt.SetActive(false);
 
 			isActive = false;
+            PlayerManager.Instance.ResetAllowMovement();
 
 		}
 
