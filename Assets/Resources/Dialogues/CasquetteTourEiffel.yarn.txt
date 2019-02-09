@@ -1,13 +1,13 @@
 title: Start.CasquetteTourEiffel
 tags: 
 colorID: 0
-position: -275,104
+position: -276,104
 ---
 <<if has_item("casquette") is true>>
 Gardienne: Coucou !
 Gardienne: Comment ça va ?
 Gardienne: échange sur casquette
-[[Dites m'en plus|ArriveeOrnithologue]]
+[[Dites m'en plus$Ça a l'air intéressant votre truc|ArriveeOrnithologue]]
 <<endif>>
 ===
 title: ArriveeOrnithologue
@@ -55,7 +55,7 @@ Gardienne: Finir le dialogue
 title: PropOrnithologue2
 tags: 
 colorID: 0
-position: -251,643
+position: -252,643
 ---
 Ornithologue: Tiens prend donc les oeufs de mouette
 <<Add Inventory oeuf_mouette>>
@@ -89,7 +89,7 @@ tags:
 colorID: 0
 position: 80,955
 ---
-<<if offered_item() is " ">>
+<<if offered_item() is "green_cube">>
 Ornithologue: Ah oui parfait ! Marché conclu !
 Ornithologue: Prends donc tes oeufs
 <<Add Inventory oeuf_mouette>>
@@ -97,6 +97,7 @@ Ornithologue: Prends donc tes oeufs
 Ornithologue: Encore merci, à tantôt !
 Gardienne: Bon dommage, je reviendrais plus tard.
 <<else>>
+Ornithologue: Non ça pue du cul
 [[Alors attends$Ptet que j'ai autre chose|ContrePropOrnithologue1]]
 [[Bon d'accord$Je t'échanges la casquette alors|PropOrnithologue2]]
 [[Laisse Tomber$Je vais prendre la lentille du coup|PropGardienne2]]
