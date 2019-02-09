@@ -27,6 +27,7 @@ namespace tfj
         public override void ResetToDefaults()
         {
             Clear();
+            GameManager.Instance.ImportYarnValues(this);
         }
 
         /// Set a variable's value
@@ -52,6 +53,11 @@ namespace tfj
             variables.Clear();
         }
 
+        public void Add(string _key, Yarn.Value _value)
+        {
+            variables.Add(_key, _value);
+        }
+
         /// If we have a debug view, show the list of all variables in it
         void Update()
         {
@@ -65,6 +71,30 @@ namespace tfj
                                                              item.Value));
                 }
                 debugTextView.text = stringBuilder.ToString();
+            }
+        }
+
+        public List<YarnKeyValue> Export()
+        {
+            List<YarnKeyValue> keyValues = new List<YarnKeyValue>();
+
+            foreach (KeyValuePair<string, Yarn.Value> entry in variables)
+            {
+                keyValues.Add(new YarnKeyValue(entry.Key, entry.Value));
+            }
+
+            return keyValues;
+        }
+
+        [System.Serializable]
+        public class YarnKeyValue
+        {
+            public string m_key;
+            public Yarn.Value m_value;
+            public YarnKeyValue(string _key, Yarn.Value _value)
+            {
+                m_key = _key;
+                m_value = _value;
             }
         }
 

@@ -49,6 +49,18 @@ namespace tfj
                 GameManager.Instance.SwitchToExplorationMode();
             }
             GUILayout.EndHorizontal();
+
+            {
+                GUILayout.Label("Yarn Variables", EditorStyles.boldLabel);
+                var variables = ((VariableStorage)(FindObjectOfType<DialogueRunner>().variableStorage)).Export();
+                foreach (var variable in variables)
+                {
+                    GUILayout.BeginHorizontal();
+                    GUILayout.Label(variable.m_key);
+                    GUILayout.Label("" + variable.m_value);
+                    GUILayout.EndHorizontal();
+                }
+            }
         }
     }
 }

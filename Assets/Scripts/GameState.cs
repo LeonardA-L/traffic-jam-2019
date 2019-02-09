@@ -18,6 +18,8 @@ namespace tfj
         [HideInInspector]
         private InventorySerialized m_inventorySerialized = new InventorySerialized();
 
+        public List<VariableStorage.YarnKeyValue> m_yarnVariables = new List<VariableStorage.YarnKeyValue>();
+
         public void Init()
         {
             m_inventory = new Inventory();
