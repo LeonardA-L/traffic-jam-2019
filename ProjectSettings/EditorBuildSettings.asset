@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TinyScene2.unity
     guid: 230218df432d69f4fad6d8b23e812879
+  - enabled: 1
+    path: Assets/Scenes/Yarn.unity
+    guid: d02ca695d525aab4f8fc41b8eaf2d5e1
   m_configObjects: {}
