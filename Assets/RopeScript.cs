@@ -17,12 +17,10 @@ public class RopeScript : MonoBehaviour {
     }
 
 	void Update()
-	{   
-        line.SetPosition(0,transform.position);
-        line.SetPosition(1,target.transform.position);
-        
-        countSegments = (Vector3.Distance(line.GetPosition(0),line.GetPosition(1))/100)*resolution;
+	{           
+        countSegments = (Vector3.Distance(transform.position,target.transform.position)/100)*resolution;
         line.positionCount = (int)countSegments+1;
+        line.SetPosition(0,transform.position);
         for(int i=1;i<line.positionCount;++i) {
             currentX = transform.position.x+((target.transform.position.x-transform.position.x)/countSegments)*i;
             currentZ = transform.position.z+((target.transform.position.z-transform.position.z)/countSegments)*i;
