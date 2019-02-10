@@ -27,6 +27,8 @@ namespace tfj
 
             runner.dialogue.library.RegisterFunction("offered_item", 0, delegate (Yarn.Value[] parameters)
             {
+                if (m_dialogUI.itemOffer == null)
+                    return "";
                 return m_dialogUI.itemOffer.Id;
             });
         }
