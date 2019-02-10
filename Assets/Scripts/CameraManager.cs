@@ -9,6 +9,8 @@ namespace tfj
      */
     public class CameraManager : Singleton<CameraManager>
     {
+        public delegate void CameraAnimationEndCallback();
+
         public enum CameraState
         {
             FOLLOW,
@@ -35,7 +37,7 @@ namespace tfj
         private Dictionary<string, Camera> m_cameras = new Dictionary<string, Camera>();
 
         public Animator m_animator;
-        private DockingStrategy m_dockingStrategy;   // TODO should be agnostic and use a delegate
+        private CameraAnimationEndCallback m_animationCallback;
 
         protected CameraManager() { }
 
@@ -96,17 +98,19 @@ namespace tfj
             m_cameras["trade"].gameObject.SetActive(false);
         }
 
-        public void SetAnimState(string _animTrigger, DockingStrategy _dockingStrategy)
+        public void SetAnimState(string _animTrigger, CameraAnimationEndCallback _callback)
         {
             m_state = CameraState.ANIMATED;
             m_animator.enabled = true;
             m_animator.SetTrigger(_animTrigger);
-            m_dockingStrategy = _dockingStrategy;
+            m_animationCallback = _callback;
         }
 
         public void EndAnimState()
         {
-            StartCoroutine(BirdView.EndBirdEyeView(m_dockingStrategy));   // TODO should be agnostic and use a delegate
+            if (m_animationCallback != null)
+                m_animationCallback();
+            m_animationCallback = null;
         }
 
     }

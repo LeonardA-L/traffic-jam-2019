@@ -16,18 +16,32 @@ namespace tfj
 
         public void Execute()
         {
-            CameraManager.Instance.SetAnimState(m_cameraAnimTrigger, this);
+            CameraManager.Instance.SetAnimState(m_cameraAnimTrigger, BirdEyeViewCallback);
         }
 
-        public void StartDocking()
+        public void BirdEyeViewCallback()
         {
-            StartCoroutine(Dock());
+            StartCoroutine(EndBirdEyeView());
         }
 
         IEnumerator Dock()
         {
             GameManager.Instance.SwitchToTradeMode(m_dialogNode);
             return null;
+        }
+
+        public IEnumerator EndBirdEyeView()
+        {
+            CameraManager.Instance.SetFollowState(0.03f);
+            var shake = EZCameraShake.CameraShaker.Instance.StartShake(4.0f, 5.0f, 0.2f);
+
+            yield return new WaitForSeconds(0.8f);
+            shake.StartFadeOut(0.1f);
+
+            yield return new WaitForSeconds(3);
+
+            CameraManager.Instance.SetFollowState();
+            Dock();
         }
     }
 }
