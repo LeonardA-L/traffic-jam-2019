@@ -38,7 +38,7 @@ namespace tfj
             float mag = (goal - m_transform.position).magnitude;
             Vector3 direction = (goal - m_transform.position).normalized;
 
-            m_direction = Vector3.Slerp(m_direction, direction, 0.01f).normalized;
+            m_direction = Vector3.Slerp(m_direction, direction, 0.008f).normalized;
 
             m_playerAgent.SetDestination(m_transform.position + mag * m_direction);
             Debug.DrawLine(m_transform.position, m_transform.position + m_direction * mag, Color.red);

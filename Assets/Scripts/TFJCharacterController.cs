@@ -59,7 +59,7 @@ namespace tfj
                 }
                 RaycastHit hit;
 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, LayerMask.GetMask(m_groundLayer)))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 500, LayerMask.GetMask(m_groundLayer)))
                 {
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer(m_groundLayer))
                     {
