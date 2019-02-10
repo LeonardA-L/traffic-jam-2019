@@ -24249,7 +24249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f5e57f8c1d6c4498363c384885c56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dialogNode: Start
+  m_dialogNode: Start.TourEiffel
   m_cameraAnimTrigger: EiffelTower
 --- !u!1001 &1970378889
 PrefabInstance:

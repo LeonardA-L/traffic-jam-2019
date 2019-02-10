@@ -21,7 +21,7 @@ namespace tfj
         void Awake()
         {
             GameManager.Instance.m_yarnStorage = this;
-            GameManager.Instance.SubjectsStateLoaded.Add(Import);
+            GameManager.Instance.SubjectsStateLoaded.Insert(0, Import);
             ResetToDefaults();
         }
 
