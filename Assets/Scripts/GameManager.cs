@@ -17,6 +17,8 @@ namespace tfj
         public GameMode m_gameMode = GameManager.GameMode.EXPLORATION;
         private Yarn.Unity.DialogueRunner m_dialogRunner;
         public VariableStorage m_yarnStorage; // TODO
+        public delegate void SubjectStateLoaded();
+        public List<SubjectStateLoaded> m_subjectsStateLoaded = new List<SubjectStateLoaded>();
 
         // Start is called before the first frame update
         void Start()
@@ -47,17 +49,9 @@ namespace tfj
         {
             m_gameState = GameState.Load(m_savePath);
 
-            if (m_yarnStorage != null)
-                ImportYarnValues(m_yarnStorage);
-        }
-
-        public void ImportYarnValues(VariableStorage _target)
-        {
-            m_yarnStorage = _target;
-            m_yarnStorage.Clear();
-            foreach (var variable in m_gameState.m_yarnVariables)
+            foreach(var subject in m_subjectsStateLoaded)
             {
-                m_yarnStorage.Add(variable.m_key, variable.m_value);
+                subject();
             }
         }
 
@@ -96,6 +90,14 @@ namespace tfj
             get
             {
                 return m_gameMode;
+            }
+        }
+
+        public List<SubjectStateLoaded> SubjectsStateLoaded
+        {
+            get
+            {
+                return m_subjectsStateLoaded;
             }
         }
     }

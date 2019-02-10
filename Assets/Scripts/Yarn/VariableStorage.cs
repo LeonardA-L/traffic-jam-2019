@@ -20,14 +20,14 @@ namespace tfj
         /// Reset to our default values when the game starts
         void Awake()
         {
+            GameManager.Instance.m_yarnStorage = this;
+            GameManager.Instance.SubjectsStateLoaded.Insert(0, Import);
             ResetToDefaults();
         }
 
         /// Erase all variables and reset to default values
         public override void ResetToDefaults()
         {
-            Clear();
-            GameManager.Instance.ImportYarnValues(this);
         }
 
         /// Set a variable's value
@@ -84,6 +84,18 @@ namespace tfj
             }
 
             return keyValues;
+        }
+
+        public void Import()
+        {
+            Clear();
+            if (GameManager.Instance.m_gameState.m_yarnVariables == null)
+                return;
+
+            foreach (var variable in GameManager.Instance.m_gameState.m_yarnVariables)
+            {
+                Add(variable.m_key, variable.m_value);
+            }
         }
 
         [System.Serializable]

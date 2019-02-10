@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6222d32ab3536634abff20ccd84677d5, type: 3}
+  m_Name: Circle1_erased
+  m_EditorClassIdentifier: 
+  m_id: Circle_erased
+  m_viewSprite: Sprites/MapDrawings/Circle_01_erased
+  m_coordinates: {x: -133.2, y: -48.6}
+  m_zIndex: 1
+  m_scale: {x: 0.25214, y: 0.25214}
+  m_size: {x: 431, y: 282}
