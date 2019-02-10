@@ -34,7 +34,7 @@ Ornithologue: Alors en fait voilà c'est de la bombe
 Ornithologue: Du coup ça c'est mieux
 <<Show Trademat oeuf_mouette 2>>
 Gardienne: Nan tu dis des conneries
-<<if $know_need_oeufs>>
+<<if $know_need_ingredients>>
 [[Ah je sais pas$J'ai besoin de ces oeufs, si je te donne autre chose ?|ContrePropOrnithologue1]]
 [[Je préfère la lentille$Accepter la proposition de la Gardienne quand même|PropGardienne2]]
 [[Ah c'est carrément bien$Accepter la proposition de l'Ornithologue|PropOrnithologue2]]
@@ -114,6 +114,6 @@ colorID: 0
 position: -1068,497
 ---
 <<Add Item casquette>>
-<<set $know_need_oeufs to true>>
+<<set $know_need_ingredients to true>>
 [[Start.CasquetteTourEiffel]]
 ===
