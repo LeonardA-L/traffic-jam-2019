@@ -72,6 +72,7 @@ namespace tfj
             drawingTransform.sizeDelta = so.m_size;
             drawingTransform.localPosition = new Vector3(so.m_coordinates.x, so.m_coordinates.y, -0.01f * so.m_zIndex);
             drawingTransform.localScale = so.m_scale;
+            m_drawings.Add(_drawingName, drawing);
         }
 
         private static string ObjectToVariable(string _objectName)
