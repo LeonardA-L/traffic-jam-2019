@@ -36,7 +36,7 @@ Ornithologue: Du coup ça c'est mieux
 <<Show Trademat oeuf_mouette 2>>
 Gardienne: Nan tu dis des conneries
 <<if $know_need_ingredients>>
-[[ItemAh je sais pas$J'ai besoin de ces oeufs, si je te donne autre chose ?|ContrePropOrnithologue]]
+[[Ah je sais pas$J'ai besoin de ces oeufs, si je te donne autre chose ?|ContrePropOrnithologue1]]
 [[Je préfère la lentille$Accepter la proposition de la Gardienne quand même|PropGardienne2]]
 [[Ah c'est carrément bien$Accepter la proposition de l'Ornithologue|PropOrnithologue2]]
 <<else>>
@@ -82,10 +82,10 @@ Gardienne: Voilà une lentille de phare donc
 Gardienne: Finir le dialogue 2
 <<Hide Trademat 2>>
 ===
-title: ContrePropOrnithologue
+title: ContrePropOrnithologue2
 tags: 
 colorID: 0
-position: 88,683
+position: 83,899
 ---
 <<if offered_item() is "green_cube">>
 Ornithologue: Ah oui parfait ! Marché conclu !
@@ -96,10 +96,10 @@ Ornithologue: Encore merci, à tantôt !
 Gardienne: Bon dommage, je reviendrais plus tard.
 <<elseif offered_item() is "">>
 Ornithologue: Allo il y a quelqu'un là dedans ?
-[[ItemAh oui pardon|ContrePropOrnithologue]]
+[[Ah oui pardon|ContrePropOrnithologue1]]
 <<else>>
 Ornithologue: Non ça pue du cul
-[[ItemAlors attends$Ptet que j'ai autre chose|ContrePropOrnithologue]]
+[[Alors attends$Ptet que j'ai autre chose|ContrePropOrnithologue1]]
 [[Bon d'accord$Je t'échanges la casquette alors|PropOrnithologue2]]
 [[Laisse Tomber$Je vais prendre la lentille du coup|PropGardienne2]]
 <<endif>>
@@ -115,4 +115,11 @@ Là on met une variable à trou
 <<set $know_need_ingredients to true>>
 Alors on a la casquette ou pas ?
 [[Bon alors...$Voyons voir|Start.CasquetteTourEiffel]]
+===
+title: ContrePropOrnithologue1
+tags: 
+colorID: 0
+position: 72,636
+---
+[[ItemVoilà je te propose ça$J'espère que ça fera l'affaire|ContrePropOrnithologue2]]
 ===
