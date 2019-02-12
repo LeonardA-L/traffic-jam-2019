@@ -29,7 +29,7 @@ Gardienne: Oh tu m'emmerdes
 title: PropOrnithologue1
 tags: 
 colorID: 0
-position: 76,368
+position: 77,373
 ---
 Ornithologue: Alors en fait voilà c'est de la bombe
 Ornithologue: Du coup ça c'est mieux
@@ -39,9 +39,10 @@ Gardienne: Nan tu dis des conneries
 [[ItemAh je sais pas$J'ai besoin de ces oeufs, si je te donne autre chose ?|ContrePropOrnithologue]]
 [[Je préfère la lentille$Accepter la proposition de la Gardienne quand même|PropGardienne2]]
 [[Ah c'est carrément bien$Accepter la proposition de l'Ornithologue|PropOrnithologue2]]
-<<endif>>
+<<else>>
 [[Ouais c'est chelou$Accepter la proposition de la Gardienne quand même|PropGardienne2]]
 [[Ah ouais j'avoue$Accepter la proposition de l'Ornithologue|PropOrnithologue2]]
+<<endif>>
 ===
 title: PropGardienne1
 tags: 
@@ -58,7 +59,7 @@ Gardienne: Finir le dialogue
 title: PropOrnithologue2
 tags: 
 colorID: 0
-position: -252,643
+position: -298,673
 ---
 Ornithologue: Tiens prend donc les oeufs de mouette
 <<Add Inventory oeuf_mouette>>
@@ -84,7 +85,7 @@ Gardienne: Finir le dialogue 2
 title: ContrePropOrnithologue
 tags: 
 colorID: 0
-position: 104,814
+position: 88,683
 ---
 <<if offered_item() is "green_cube">>
 Ornithologue: Ah oui parfait ! Marché conclu !
@@ -106,7 +107,7 @@ Ornithologue: Non ça pue du cul
 title: SUPPRIMER
 tags: 
 colorID: 0
-position: -765,513
+position: -644,367
 ---
 Là on va ajouter la casquette.
 <<Add Inventory casquette>>
