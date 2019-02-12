@@ -9,6 +9,7 @@ Gardienne: Comment ça va ?
 Gardienne: échange sur casquette
 [[Dites m'en plus$Ça a l'air intéressant votre truc|ArriveeOrnithologue]]
 <<else>>
+Hum je n'ai rien à échanger
 [[Oh une casquette !$Pratique de trouver des choses par terre quand même|SUPPRIMER]]
 <<endif>>
 ===
@@ -107,7 +108,10 @@ tags:
 colorID: 0
 position: -765,513
 ---
-<<Add Item casquette>>
+Là on va ajouter la casquette.
+<<Add Inventory casquette>>
+Là on met une variable à trou
 <<set $know_need_ingredients to true>>
-[[Start.CasquetteTourEiffel]]
+Alors on a la casquette ou pas ?
+[[Bon alors...$Voyons voir|Start.CasquetteTourEiffel]]
 ===
