@@ -50,47 +50,7 @@ namespace tfj
             joy.Normalize();
             joy *= magnitude;
 
-            // Detect click on ground
-            if (magnitude == 0 && Input.GetMouseButton(0))
-            {
-                if (EventSystem.current.IsPointerOverGameObject())
-                {
-                    return;
-                }
-                RaycastHit hit;
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 500, LayerMask.GetMask(m_groundLayer)))
-                {
-                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer(m_groundLayer))
-                    {
-                        SetPlayerAction(hit.point);
-                    }
-                }
-            } else if(magnitude != 0)
-            {
-                Vector3 camForward = m_camera.forward;
-                camForward.y = 0;
-                camForward.Normalize();
-
-                Vector3 command = transform.position
-                          + (joy.y * camForward + joy.x * m_camera.right)
-                          * m_commandOffset;
-                SetPlayerAction(command);
-            }
-
-        }
-
-        public void SetPlayerAction(Vector3 goal)
-        {
-            if(!PlayerManager.Instance.AllowMovement)
-            {
-                return;
-            }
-
-            m_playerMoving = true;
-            m_command = goal;
-
-            m_controlStrategy.SetPlayerGoal(m_command);
+            m_controlStrategy.Execute(joy);
         }
 
         void OnDrawGizmos()

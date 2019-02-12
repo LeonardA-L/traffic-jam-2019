@@ -8,25 +8,27 @@ namespace tfj
     public abstract class ControlStrategy : ScriptableObject
     {
         [Tooltip("Rotation speed of the character (does not impact movement)")]
-        public float m_rotationSpeed = 120;
+        public float m_rotationSpeed = 10;
+        public float m_maxRotationSpeed = 120;
         [Tooltip("Max speed for the character")]
         public float m_maxSpeed = 12;
+        public float m_maxBackwardSpeed = 4;
         public float m_acceleration = 6;
 
         public float m_maxYawSpeed = 50;
         public float m_maxRollFromYawSpeed = 10;
 
-        protected NavMeshAgent m_playerAgent;
         protected TFJCharacterController m_controller;
         protected Transform m_transform;
+        protected CharacterController m_characterController;
 
         public virtual void Init(TFJCharacterController _controller)
         {
             m_controller = _controller;
-            m_playerAgent = m_controller.GetComponent<NavMeshAgent>();
             m_transform = _controller.transform;
+            m_characterController = _controller.GetComponent<CharacterController>();
         }
-        public abstract void SetPlayerGoal(Vector3 _goal);
+        public abstract void Execute(Vector2 _joy);
 
         public float MaxYawSpeed
         {

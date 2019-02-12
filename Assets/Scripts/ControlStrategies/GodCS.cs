@@ -10,16 +10,12 @@ namespace tfj
         public override void Init(TFJCharacterController _controller)
         {
             base.Init(_controller);
-
-            m_playerAgent.acceleration = m_acceleration;
-            m_playerAgent.angularSpeed = m_rotationSpeed;
-            m_playerAgent.speed = m_maxSpeed;
-            Debug.Log(m_playerAgent, m_playerAgent);
         }
 
-        public override void SetPlayerGoal(Vector3 _goal)
+        public override void Execute(Vector2 _joy)
         {
-            m_playerAgent.SetDestination(_goal);
+            throw new System.NotImplementedException();
         }
+
     }
 }

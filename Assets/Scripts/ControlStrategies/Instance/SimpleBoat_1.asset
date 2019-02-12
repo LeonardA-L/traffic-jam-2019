@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73b12c0f9137974db6f6790aa5f8349, type: 3}
   m_Name: SimpleBoat_1
   m_EditorClassIdentifier: 
-  m_rotationSpeed: 120
+  m_rotationSpeed: 6
+  m_maxRotationSpeed: 50
   m_maxSpeed: 12
-  m_acceleration: 6
+  m_maxBackwardSpeed: 4
+  m_acceleration: 2
   m_maxYawSpeed: 60
   m_maxRollFromYawSpeed: 15
+  m_friction: 0.02
+  m_rotFriction: 0.1
+  m_forwardSpeed: 0
+  m_rotSpeed: 0

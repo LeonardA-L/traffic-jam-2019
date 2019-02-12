@@ -28,7 +28,7 @@ namespace tfj
 
         private void OnTriggerEnter(Collider other)
         {
-            var controller = other.attachedRigidbody.gameObject.GetComponent<TFJCharacterController>();
+            var controller = other.gameObject.GetComponent<TFJCharacterController>();
             if (controller == null)
             {
                 return;
@@ -45,7 +45,7 @@ namespace tfj
 
         private void OnTriggerExit(Collider other)
         {
-            var controller = other.attachedRigidbody.gameObject.GetComponent<TFJCharacterController>();
+            var controller = other.gameObject.GetComponent<TFJCharacterController>();
             if (controller == null)
             {
                 return;
