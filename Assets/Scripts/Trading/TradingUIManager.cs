@@ -23,10 +23,6 @@ namespace tfj
         {
             m_itemButton.SetActive(_needItem);
         }
-        public void UpdateItembutton()
-        {
-
-        }
     }
 
 }

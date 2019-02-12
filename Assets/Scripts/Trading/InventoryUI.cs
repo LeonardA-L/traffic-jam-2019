@@ -20,6 +20,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     public GameObject InventoryButton;
+    public Image ItemButtonImage;
     Inventory m_inventory;
     List<ItemUIRef> m_items = new List<ItemUIRef>();
 
@@ -46,6 +47,16 @@ public class InventoryUI : MonoBehaviour
                 break;
             }
         }
-
+    }
+    public void CloseInventory()
+    {
+        gameObject.SetActive(false);
+    }
+    public void SelectItem(GameObject _uiElement)
+    {
+        ItemUIRef itemUIRef = m_items.Find(i => i.m_uiElement == _uiElement);
+        DialogueManager.Instance.itemOffer = itemUIRef.m_item;
+        ItemButtonImage.sprite = Resources.Load<Sprite>(itemUIRef.m_item.ViewSprite);
+        CloseInventory();
     }
 }

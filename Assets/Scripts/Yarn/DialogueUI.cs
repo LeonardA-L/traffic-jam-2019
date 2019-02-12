@@ -120,9 +120,7 @@ namespace tfj
 
             isActive = false;
             PlayerManager.Instance.ResetAllowMovement();
-
         }
-
         /// Show a list of options, and wait for the player to make a selection.
         public override IEnumerator RunOptions(Yarn.Options optionsCollection,
                                                 Yarn.OptionChooser optionChooser)
@@ -134,7 +132,6 @@ namespace tfj
                                  "buttons to present them in. This will cause problems.");
             }
             isActive = true;
-
             // Display each option in a button, and make it visible
             int i = 0;
             bool needItem = false;
@@ -150,7 +147,6 @@ namespace tfj
                 i++;
             }
             m_tradingUIManager.ShowItemButton(needItem);
-
             // Record that we're using it
             SetSelectedOption = optionChooser;
 
@@ -159,7 +155,6 @@ namespace tfj
             {
                 yield return null;
             }
-
             // Hide all the buttons
             foreach (var button in optionButtons)
             {
@@ -171,11 +166,9 @@ namespace tfj
         /// Called by buttons to make a selection.
         public void SetOption(int selectedOption)
         {
-
             // Call the delegate to tell the dialogue system that we've
             // selected an option.
             SetSelectedOption(selectedOption);
-
             // Now remove the delegate so that the loop in RunOptions will exit
             SetSelectedOption = null;
         }
@@ -203,7 +196,6 @@ namespace tfj
             {
                 gameControlsContainer.gameObject.SetActive(false);
             }
-
             yield break;
         }
 
@@ -224,7 +216,5 @@ namespace tfj
 
             yield break;
         }
-
     }
-
 }
