@@ -13,6 +13,8 @@ public class SelectableOption : MonoBehaviour, ISelectHandler, IDeselectHandler,
     public string text;
     Text shortText;
     Text longText;
+    InventoryUI m_inventoryUI;
+    public GameObject m_itemButton;
 
     void Awake()
     {
@@ -21,6 +23,7 @@ public class SelectableOption : MonoBehaviour, ISelectHandler, IDeselectHandler,
         layoutElement.minWidth = MinimumWidth;
         shortText = GetComponentsInChildren<Text>(true)[0];
         longText = GetComponentsInChildren<Text>(true)[1];
+        m_inventoryUI = tfj.TradingUIManager.Instance.m_inventoryUI;
 
 
         if (this.gameObject == EventSystem.current.currentSelectedGameObject)
@@ -61,6 +64,9 @@ public class SelectableOption : MonoBehaviour, ISelectHandler, IDeselectHandler,
     }
     public void UpdateText(string optionText)
     {
+
+        optionText = optionText.Replace("Item", "");
+
         string[] split = optionText.Split("$".ToCharArray());
         shortText.text = split[0];
         longText.text = split[1];
@@ -70,5 +76,8 @@ public class SelectableOption : MonoBehaviour, ISelectHandler, IDeselectHandler,
         longText.gameObject.SetActive(isLong);
         shortText.gameObject.SetActive(!isLong);
     }
-
+    public void OpenInventory()
+    {
+        m_inventoryUI.gameObject.SetActive(true);
+    }
 }
