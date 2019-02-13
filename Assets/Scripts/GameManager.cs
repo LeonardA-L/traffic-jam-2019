@@ -49,7 +49,7 @@ namespace tfj
         {
             m_gameState = GameState.Load(m_savePath);
 
-            foreach(var subject in m_subjectsStateLoaded)
+            foreach (var subject in m_subjectsStateLoaded)
             {
                 subject();
             }
@@ -66,9 +66,11 @@ namespace tfj
         {
             m_gameMode = GameMode.TRADE;
             CameraManager.Instance.SwitchToTradeMode();
-            if(_node != null)
+            if (_node != null)
                 m_dialogRunner.StartDialogue(_node);
             PlayerManager.Instance.SetAllowMovement(false);
+            TradingUIManager.Instance.gameObject.SetActive(true);
+
         }
 
         public void SwitchToExplorationMode()
@@ -76,9 +78,11 @@ namespace tfj
             m_gameMode = GameMode.EXPLORATION;
             CameraManager.Instance.SwitchToFollowMode();
             PlayerManager.Instance.SetAllowMovement(true);
+            TradingUIManager.Instance.gameObject.SetActive(false);
         }
 
-        public Inventory Inventory {
+        public Inventory Inventory
+        {
             get
             {
                 return m_gameState.m_inventory;

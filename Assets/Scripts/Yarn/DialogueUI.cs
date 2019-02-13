@@ -8,7 +8,6 @@ namespace tfj
 {
     /// Displays dialogue lines to the player, and sends
     /// user choices back to the dialogue system.
-
     /** Note that this is just one way of presenting the
      * dialogue to the user. The only hard requirement
      * is that you provide the RunLine, RunOptions, RunCommand
@@ -16,7 +15,6 @@ namespace tfj
      */
     public class DialogueUI : Yarn.Unity.DialogueUIBehaviour
     {
-
         /// The object that contains the dialogue and the options.
         /** This object will be enabled when conversation starts, and 
          * disabled when it ends.
@@ -143,7 +141,6 @@ namespace tfj
                 {
                     needItem = true;
                 }
-
                 i++;
             }
             m_tradingUIManager.ShowItemButton(needItem);
@@ -171,6 +168,8 @@ namespace tfj
             SetSelectedOption(selectedOption);
             // Now remove the delegate so that the loop in RunOptions will exit
             SetSelectedOption = null;
+            m_tradingUIManager.ShowItemButton(false);
+
         }
 
         /// Run an internal command.
@@ -181,7 +180,6 @@ namespace tfj
 
             yield break;
         }
-
         /// Called when the dialogue system has started running.
         public override IEnumerator DialogueStarted()
         {
@@ -198,7 +196,6 @@ namespace tfj
             }
             yield break;
         }
-
         /// Called when the dialogue system has finished running.
         public override IEnumerator DialogueComplete()
         {
@@ -207,13 +204,11 @@ namespace tfj
             // Hide the dialogue interface.
             if (dialogueContainer != null)
                 dialogueContainer.SetActive(false);
-
             // Show the game controls.
             if (gameControlsContainer != null)
             {
                 gameControlsContainer.gameObject.SetActive(true);
             }
-
             yield break;
         }
     }
