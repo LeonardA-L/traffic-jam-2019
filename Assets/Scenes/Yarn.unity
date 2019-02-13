@@ -2010,6 +2010,7 @@ GameObject:
   - component: {fileID: 828551967}
   - component: {fileID: 828551966}
   - component: {fileID: 828551965}
+  - component: {fileID: 828551969}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2098,6 +2099,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &828551969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828551964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f3dba83acbf4813ae9191e03f12d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_inventoryUI: {fileID: 173250152}
+  m_itemButton: {fileID: 0}
 --- !u!1 &829602056
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,7 +2759,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253744031}
-  - component: {fileID: 1253744032}
   m_Layer: 0
   m_Name: Yarn
   m_TagString: Untagged
@@ -2772,20 +2786,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1253744032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253744030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f3dba83acbf4813ae9191e03f12d4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_inventoryUI: {fileID: 173250152}
-  m_itemButton: {fileID: 0}
 --- !u!4 &1273400210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b2187d5fae26c3e4ca23e1a5bbb309e7,
