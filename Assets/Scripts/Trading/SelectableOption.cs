@@ -37,6 +37,11 @@ public class SelectableOption : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
     }
 
+    void OnEnable()
+    {
+        DisplayText(false);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!EventSystem.current.alreadySelecting)
