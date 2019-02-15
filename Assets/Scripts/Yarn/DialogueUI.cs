@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Text;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace tfj
 {
@@ -77,9 +78,26 @@ namespace tfj
         /// Show a line of dialogue, gradually
         public override IEnumerator RunLine(Yarn.Line line)
         {
+            isActive = true;
+            Regex regex = new Regex(@"Wait \d+");
+            Match match = regex.Match(line.text);
+            if (match.Success)
+            {
+                string[] split = line.text.Split(" ".ToCharArray());
+                float duration = ((float)int.Parse(split[1])) / 1000.0f;
+                Debug.Log("Wait duration " + duration);
+                /*lineText.gameObject.SetActive(split[2] == "true" || split[2] == "keepUI");
+                lineText.text = "";*/
+
+                yield return new WaitForSeconds(duration);
+                isActive = false;
+                PlayerManager.Instance.ResetAllowMovement();
+
+                yield break;
+            }
+
             // Show the text
             lineText.gameObject.SetActive(true);
-            isActive = true;
             PlayerManager.Instance.SetAllowMovement(false);
 
             if (textSpeed > 0.0f)
