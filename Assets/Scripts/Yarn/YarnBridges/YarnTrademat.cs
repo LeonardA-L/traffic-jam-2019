@@ -35,5 +35,13 @@ namespace tfj
                 GameObject.Destroy(child.gameObject);
             }
         }
+
+        [YarnCommand("Exit")]
+        public void ExitTradeMode()
+        {
+            Debug.Log("Souiching");
+            GameManager.Instance.SwitchToExplorationMode();
+        }
+
     }
 }
