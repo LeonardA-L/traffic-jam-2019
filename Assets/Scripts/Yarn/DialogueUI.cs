@@ -105,6 +105,10 @@ namespace tfj
                 continuePrompt.SetActive(true);
 
             // Wait for any user input
+            while (Input.anyKeyDown)
+            {
+                yield return null;
+            }
             while (Input.anyKeyDown == false)
             {
                 yield return null;
