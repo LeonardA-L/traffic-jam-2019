@@ -37,6 +37,7 @@ namespace tfj
             }
 
             m_dialogRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
+            TradingUIManager.Instance.gameObject.SetActive(false);
         }
 
         // Update is called once per frame
