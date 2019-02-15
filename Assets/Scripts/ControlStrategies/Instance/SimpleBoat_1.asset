@@ -15,7 +15,8 @@ MonoBehaviour:
   m_rotationSpeed: 6
   m_maxRotationSpeed: 50
   m_maxSpeed: 12
-  m_maxRockFromSpeed: 30
+  m_maxForwardRockFromSpeed: 30
+  m_maxBackwardRockFromSpeed: 40
   m_maxBackwardSpeed: 4
   m_acceleration: 2
   m_maxYawSpeed: 60

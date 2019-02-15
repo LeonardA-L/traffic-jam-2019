@@ -53,13 +53,27 @@ namespace tfj
                                                            m_controller.ControlStrategy.MaxRollFromYawSpeed,
                                                            yawSpeedChange)
                                        , 0.1f);
-            m_previousRockEffect = Mathf.Lerp(m_previousRockEffect,
+            if (speedChange > 0)
+            {
+                m_previousRockEffect = Mathf.Lerp(m_previousRockEffect,
+                                                Tools.LinearScale(-m_controller.ControlStrategy.MaxSpeed,
+                                                                   m_controller.ControlStrategy.MaxSpeed,
+                                                                  -m_controller.ControlStrategy.MaxForwardRockFromSpeed,
+                                                                   m_controller.ControlStrategy.MaxForwardRockFromSpeed,
+                                                                   speedChange)
+                                               , 0.1f);
+            }
+            else
+            {
+                m_previousRockEffect = Mathf.Lerp(m_previousRockEffect,
                                 Tools.LinearScale(-m_controller.ControlStrategy.MaxSpeed,
                                                    m_controller.ControlStrategy.MaxSpeed,
-                                                  -m_controller.ControlStrategy.MaxRockFromSpeed,
-                                                   m_controller.ControlStrategy.MaxRockFromSpeed,
+                                                  -m_controller.ControlStrategy.MaxBackwardRockFromSpeed,
+                                                   m_controller.ControlStrategy.MaxBackwardRockFromSpeed,
                                                    speedChange)
                                , 0.1f);
+            }
+
 
             rock += Mathf.SmoothDampAngle(rotation.x, m_previousRockEffect, ref m_rockVelocity, 1);
             m_previousRoll = Mathf.SmoothDampAngle(m_previousRoll, m_previousRollEffect, ref m_rollVelocity, .4f);
