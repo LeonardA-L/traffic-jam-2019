@@ -1,7 +1,7 @@
 title: Start.TourEiffel
 tags: 
 colorID: 0
-position: 540,260
+position: 482,12
 ---
 <<if has_item("casquette") and has_item("oeuf_mouette") is false and has_item("lentille") is false>>
 [[Start.CasquetteTourEiffel]]
@@ -9,8 +9,10 @@ position: 540,260
 [[Start.CasquetteLentille]]
 <<elseif has_item("casquette") and has_item("lentille") and has_item("oeuf_mouette") is false>>
 [[Start.CasquetteOeufs]]
-<<elseif has_item("drapeau") and has_item("oeuf_mouette") is false>>
+<<elseif has_item("drapeau") and has_item("casquette") is false and has_item("oeuf_mouette") is false>>
 [[Start.DrapeauOeufs]]
+<<elseif has_item("bouee") and has_item("casquette") is false and has_item("lentille") is false>>
+[[Start.BoueeLentille]]
 <<elseif has_item("manche_aspirateur") and has_item("ventilateur") is false>>
 [[Start.AspirateurVentilateur]]
 <<elseif has_item("radio") and has_item("recettes") is false>>
@@ -19,7 +21,29 @@ position: 540,260
 [[Start.TrompetteSac]]
 <<elseif has_item("trumpet") and has_item("sac_dos")>>
 [[Start.TrompetteInfo]]
+<<elseif has_item("pigeon") and has_item("photo_avion")>>
+[[Start.PigeonPhotoQ1]]
+<<elseif has_item("pigeon") and has_item("photo_avion") is false and $Q1_obtained is false>>
+[[Start.PigeonQ1]]
+<<elseif has_item("photo_avion") and has_item("pigeon") is false and $Q1_obtained is false>>
+[[Start.PhotoQ1]]
+<<elseif has_item("photo_avion") and $Q1_obtained>>
+[[Start.PhotoTourEiffel]]
+<<else>>
+[[Start.DefaultTourEiffel]]
 <<endif>>
-
-[[Start.CasquetteTourEiffel]]
+===
+title: Start.DefaultTourEiffel
+tags: 
+colorID: 0
+position: 917,262
+---
+Hum je n'ai rien à échanger
+Oh une casquette 
+Pratique de trouver des choses par terre quand même, je la prend
+<<Add Inventory casquette>>
+Là on met une variable à trou
+<<set $know_need_ingredients to true>>
+Et on est partis c'était le default de test !
+[[Start.TourEiffel]]
 ===

@@ -3,14 +3,9 @@ tags:
 colorID: 0
 position: -279,-199
 ---
-<<if has_item("casquette") is true>>
 Gardienne: Coucou !
 Gardienne: Alors il paraît que tu as un truc pour le soleil ?
 [[Oui, un chapeau avec une visière$C'est pratique et portatif|CasquetteTourEiffelFill1]]
-<<else>>
-Hum je n'ai rien à échanger
-[[Oh une casquette !$Pratique de trouver des choses par terre quand même|SUPPRIMER]]
-<<endif>>
 ===
 title: ArriveeOrnithologue
 tags: 
@@ -40,7 +35,7 @@ Ornithologue: Ils sont tout frais, et pas fécondés. Du coup j'en ai pas besoin
 <<Show Trademat oeuf_mouette 2>>
 Ornithologue: On utilises pas vraiment d'oeufs ici.
 Ornithologue: Mais c'est assez rare donc peut-être que tu leurs trouvera une utilité.
-[[Je suis pas très chaud$Je crois que je préfère la lentille|PropGardienne1]]
+[[Je préfère la lentille$À nous gardienne, qu'est ce qu'on s'échange du coup ?|PropGardienne1]]
 [[Ah oui carrément$Qu'est-ce que tu voudrais en échange ?|PropOrnithologue1]]
 ===
 title: PropGardienne1
@@ -53,7 +48,7 @@ position: 436,104
 title: PropOrnithologue2
 tags: 
 colorID: 0
-position: 800,728
+position: 798,729
 ---
 <<if offered_item() is "casquette">>
 Ornithologue: Parfait ! Tout est comme convenu.
@@ -63,15 +58,17 @@ Ornithologue: Voilà donc tes oeufs
 <<Hide Trademat 2>>
 Ornithologue: Encore merci, à tantôt !
 Gardienne: Bon dommage, je reviendrais plus tard.
-<<elseif offered_item() is "bouee">>
+<<Hide Trademat 0>>
+<<elseif offered_item() is "drapeau">>
 Ornithologue: Ah ça aussi c'est très bien, parfait pour aller observer les oiseaux dans leur milieu naturel.
 Ornithologue: Ben écouté je te le prends.
-<<Remove Inventory bouee>>
+<<Remove Inventory drapeau>>
 Ornithologue: Hop attrape les oeufs, qu'ils te servent bien.
 <<Add Inventory oeuf_mouette>>
 <<Hide Trademat 2>>
 Ornithologue: Encore merci, à tantôt !
-Gardienne: Bon dommage, je reviendrais plus tard.
+Gardienne: Hum, du coup heu, tu voudrais la lentille quand même ?
+[[Oui bien sûr$Voyons voir ce que j'ai|PropGardienne3]]
 <<elseif offered_item() is "">>
 Ornithologue: Allo il y a quelqu'un là dedans ?
 [[Ah oui pardon$Je suis si bête|PropOrnithologue1]]
@@ -80,18 +77,6 @@ Ornithologue: Ça me paraît pas très intéressant ça.
 [[Alors attends$Peut-être que j'ai autre chose|PropOrnithologue1]]
 [[Laisse Tomber$Je vais prendre la lentille du coup|PropGardienne1]]
 <<endif>>
-===
-title: SUPPRIMER
-tags: 
-colorID: 0
-position: -276,104
----
-Là on va ajouter la casquette.
-<<Add Inventory casquette>>
-Là on met une variable à trou
-<<set $know_need_ingredients to true>>
-Alors on a la casquette ou pas ?
-[[Bon alors...$Voyons voir|Start.CasquetteTourEiffel]]
 ===
 title: PropOrnithologue1
 tags: 
@@ -103,7 +88,7 @@ position: 78,724
 title: PropGardienne2
 tags: 
 colorID: 0
-position: 810,410
+position: 804,401
 ---
 <<if offered_item() is "casquette">>
 <<Remove Inventory casquette>>
@@ -114,6 +99,8 @@ Gardienne: Tiens, la lentille. J'espère qu'elle servira à quelqu'un.
 Gardienne: Encore merci ça va vraiment me simplifier la vie.
 Gardienne: Je vais aller en profiter tout de suite.
 Gardienne: À plus !
+Ornithologue: Eh ben tant pis pour toi, je garde mes oeufs
+<<Hide Trademat 2>>
 <<elseif offered_item() is "bouee">>
 Gardienne: Ah oui ! J'avais pas vu que tu avais ça.
 Gardienne: Hum ben écoute.
@@ -124,6 +111,8 @@ Gardienne: Voilà, la lentille. J'espère qu'elle servira à quelqu'un.
 <<Hide Trademat 0>>
 <<Add Inventory lentille>>
 Gardienne: Il faut que j'y aille, à bientôt !
+Ornithologue: Revenons à nos moutons, mes oeufs ils t'intéressent toujours ?
+[[Oui bien sûr$Voyons voir ce que j'ai|PropOrnithologue3]]
 <<elseif offered_item() is "">>
 Gardienne: Heu tu me proposes rien là ?
 [[Ah oui pardon$Attends je choisis un truc|PropGardienne1]]
@@ -145,4 +134,75 @@ position: 76,-194
 Gardienne: Ah ce serait cool ça pour pas me cramer les yeux tout là haut.
 Gardienne: Peut-être que j'aurais quelque chose qui peut t'intéresser en échange.
 [[Dis m'en plus$On pourra peut-être trouver un terrain d'entente|ArriveeOrnithologue]]
+===
+title: PropOrnithologue3
+tags: 
+colorID: 0
+position: 1188,403
+---
+[[ItemCeci devrait faire l'air affaire$On est sur la même longueur d'onde ?|PropOrnithologue4]]
+===
+title: PropOrnithologue4
+tags: 
+colorID: 0
+position: 1576,399
+---
+<<if offered_item() is "casquette">>
+Ornithologue: Parfait ! Tout est comme convenu.
+<<Remove Inventory casquette>>
+Ornithologue: Voilà donc tes oeufs
+<<Add Inventory oeuf_mouette>>
+<<Hide Trademat 2>>
+Ornithologue: Encore merci, à tantôt !
+<<elseif offered_item() is "drapeau">>
+Ornithologue: Ah ça aussi c'est très bien, parfait pour aller observer les oiseaux dans leur milieu naturel.
+Ornithologue: Ben écouté je te le prends.
+<<Remove Inventory drapeau>>
+Ornithologue: Hop attrape les oeufs, qu'ils te servent bien.
+<<Add Inventory oeuf_mouette>>
+<<Hide Trademat 2>>
+Ornithologue: Encore merci, à tantôt !
+<<elseif offered_item() is "">>
+Ornithologue: J'attends toujours que tu me proposes quelque chose là
+[[Ah en effet$Désolé, mea culpa|PropOrnithologue3]]
+<<else>>
+Ornithologue: Ah non c'est pas très bien ça.
+[[Laisse moi chercher$J'ai forcément quelque chose pour toi|PropOrnithologue3]]
+<<endif>>
+===
+title: PropGardienne3
+tags: 
+colorID: 0
+position: 1200,730
+---
+[[ItemCeci devrait faire l'air affaire$On est sur la même longueur d'onde ?|PropGardienne4]]
+===
+title: PropGardienne4
+tags: 
+colorID: 0
+position: 1575,728
+---
+<<if offered_item() is "casquette">>
+<<Remove Inventory casquette>>
+Gardienne: Marché conclu !
+Gardienne: Tiens, la lentille. J'espère qu'elle servira à quelqu'un.
+<<Hide Trademat 0>>
+<<Add Inventory lentille>>
+Gardienne: Encore merci ça va vraiment me simplifier la vie.
+Gardienne: Je vais aller en profiter tout de suite.
+Gardienne: À plus !
+<<elseif offered_item() is "bouee">>
+Gardienne: Ah oui ! J'avais pas vu que tu avais ça.
+Gardienne: Hum ben écoute.
+Gardienne: C'est pas ce dont on parlait à la base mais je veux bien te le prendre.
+<<Remove Inventory casquette>>
+Gardienne: Topes-la !
+Gardienne: Voilà, la lentille. J'espère qu'elle servira à quelqu'un.
+<<Hide Trademat 0>>
+<<Add Inventory lentille>>
+Gardienne: Il faut que j'y aille, à bientôt !
+<<else>>
+Gardienne: Ah non je sais pas, ça me va pas trop ça
+[[Laisse moi chercher$J'ai forcément quelque chose pour toi|PropGardienne3]]
+<<endif>>
 ===
