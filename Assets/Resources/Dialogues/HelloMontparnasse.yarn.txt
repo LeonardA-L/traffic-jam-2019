@@ -1,0 +1,34 @@
+title: Start.Montparnasse
+tags: 
+colorID: 0
+position: -103,22
+---
+<<if has_item("pochette") and has_item("pigeon") is false>>
+[[Start.PochettePigeon]]
+<<elseif has_item("bouclier") and $Q2_obtained is false>>
+[[Start.BouclierQ2]]
+<<elseif has_item("trumpet") and has_item("casquette") is false>>
+[[Start.TrompetteCasquette]]
+<<elseif has_item("neon") and has_item("radio") is false>>
+[[Start.NeonRadio]]
+<<elseif has_item("drapeau") and has_item("oeuf_mouette") or has_item("drapeau") and $Q3_obtained>>
+[[Start.DrapeauInfo]]
+<<elseif has_item("ventilateur") and has_item("dictionnaire") is false>>
+[[Start.VentilateurDictionnaire]]
+<<elseif has_item("aspirateur") and has_item("trumpet") is false>>
+[[Start.AspirateurTrompette]]
+<<elseif has_item("aspirateur") and has_item("trumpet")>>
+[[Start.AspirateurInfo]]
+<<elseif has_item("") and has_item("") is false>>
+[[Start.]]
+<<else>>
+[[Start.DefaultMontparnasse]]
+<<endif>>
+===
+title: Start.DefaultMontparnasse
+tags: 
+colorID: 0
+position: 251,180
+---
+Vide pour le moment
+===
