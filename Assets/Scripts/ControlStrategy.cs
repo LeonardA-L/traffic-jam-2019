@@ -12,6 +12,8 @@ namespace tfj
         public float m_maxRotationSpeed = 120;
         [Tooltip("Max speed for the character")]
         public float m_maxSpeed = 12;
+        public float m_maxRockFromSpeed = 10;
+
         public float m_maxBackwardSpeed = 4;
         public float m_acceleration = 6;
 
@@ -37,12 +39,25 @@ namespace tfj
                 return m_maxYawSpeed;
             }
         }
-
+        public float MaxSpeed
+        {
+            get
+            {
+                return m_maxSpeed;
+            }
+        }
         public float MaxRollFromYawSpeed
         {
             get
             {
                 return m_maxRollFromYawSpeed;
+            }
+        }
+        public float MaxRockFromSpeed
+        {
+            get
+            {
+                return m_maxRockFromSpeed;
             }
         }
     }
