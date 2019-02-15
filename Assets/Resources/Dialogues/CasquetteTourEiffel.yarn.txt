@@ -1,15 +1,12 @@
 title: Start.CasquetteTourEiffel
 tags: 
 colorID: 0
-position: 74,-187
+position: -279,-199
 ---
 <<if has_item("casquette") is true>>
 Gardienne: Coucou !
 Gardienne: Alors il paraît que tu as un truc pour le soleil ?
--> Hum oui, un chapeau avec une visière
-Gardienne: Ah ce serait cool ça pour pas me cramer les yeux tout là haut.
-Gardienne: Peut-être que j'aurais quelque chose qui peut t'intéresser en échange.
-[[Dis m'en plus$On pourra peut-être trouver un terrain d'entente|ArriveeOrnithologue]]
+[[Oui, un chapeau avec une visière$C'est pratique et portatif|CasquetteTourEiffelFill1]]
 <<else>>
 Hum je n'ai rien à échanger
 [[Oh une casquette !$Pratique de trouver des choses par terre quand même|SUPPRIMER]]
@@ -56,7 +53,7 @@ position: 436,104
 title: PropOrnithologue2
 tags: 
 colorID: 0
-position: 812,734
+position: 800,728
 ---
 <<if offered_item() is "casquette">>
 Ornithologue: Parfait ! Tout est comme convenu.
@@ -87,7 +84,7 @@ Ornithologue: Ça me paraît pas très intéressant ça.
 title: SUPPRIMER
 tags: 
 colorID: 0
-position: -264,101
+position: -276,104
 ---
 Là on va ajouter la casquette.
 <<Add Inventory casquette>>
@@ -139,4 +136,13 @@ Gardienne: Hum c'est pas inintéressant mais j'en ai pas besoin.
 [[Je vais trouver autre chose$Laisse-moi le temps de choisir un truc|ProgGardienne1]]
 [[J'écoutes une autre proposition alors$Tu as quoi l'ornithologue ?|ContrePropOrnithologue]]
 <<endif>>
+===
+title: CasquetteTourEiffelFill1
+tags: 
+colorID: 0
+position: 76,-194
+---
+Gardienne: Ah ce serait cool ça pour pas me cramer les yeux tout là haut.
+Gardienne: Peut-être que j'aurais quelque chose qui peut t'intéresser en échange.
+[[Dis m'en plus$On pourra peut-être trouver un terrain d'entente|ArriveeOrnithologue]]
 ===
