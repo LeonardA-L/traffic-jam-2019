@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 8eab3342610ab6a4084f28360f1d02ed
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Box002
+    100004: Box003
+    100006: Box004
+    100008: Box005
+    100010: Box008
+    100012: ChamferBox001
+    100014: ChamferBox002
+    100016: ChamferBox003
+    100018: ChamferCyl001
+    100020: Cylinder001
+    100022: Cylinder002
+    100024: Cylinder003
+    100026: Freehand002
+    100028: //RootNode
+    100030: Line001
+    100032: OilTank001
+    100034: OilTank002
+    100036: OilTank003
+    100038: OilTank004
+    100040: Plane006
+    100042: Plane009
+    100044: Plane010
+    100046: Plane011
+    100048: Plane012
+    100050: Torus001
+    100052: Torus002
+    100054: Torus003
+    100056: Torus004
+    100058: Torus005
+    100060: Tube025
+    100062: Tube026
+    100064: Tube029
+    100066: Tube030
+    100068: Tube033
+    100070: Tube034
+    400000: Box001
+    400002: Box002
+    400004: Box003
+    400006: Box004
+    400008: Box005
+    400010: Box008
+    400012: ChamferBox001
+    400014: ChamferBox002
+    400016: ChamferBox003
+    400018: ChamferCyl001
+    400020: Cylinder001
+    400022: Cylinder002
+    400024: Cylinder003
+    400026: Freehand002
+    400028: //RootNode
+    400030: Line001
+    400032: OilTank001
+    400034: OilTank002
+    400036: OilTank003
+    400038: OilTank004
+    400040: Plane006
+    400042: Plane009
+    400044: Plane010
+    400046: Plane011
+    400048: Plane012
+    400050: Torus001
+    400052: Torus002
+    400054: Torus003
+    400056: Torus004
+    400058: Torus005
+    400060: Tube025
+    400062: Tube026
+    400064: Tube029
+    400066: Tube030
+    400068: Tube033
+    400070: Tube034
+    2100000: Coque
+    2100002: Cabine
+    2100004: Hublot
+    2100006: "Bou\xE9e"
+    2100008: Porte
+    2100010: "Poign\xE9e porte"
+    2100012: Fenetre cote
+    2100014: Fenetre avant
+    2100016: Barriere
+    2100018: Bite
+    2100020: Bois
+    2100022: Pneus
+    2100024: Canot
+    2100026: "Rame poign\xE9e"
+    2100028: Rame manche
+    2100030: Rame
+    2300000: Box001
+    2300002: Box002
+    2300004: Box003
+    2300006: Box004
+    2300008: Box005
+    2300010: Box008
+    2300012: ChamferBox001
+    2300014: ChamferBox002
+    2300016: ChamferBox003
+    2300018: ChamferCyl001
+    2300020: Cylinder001
+    2300022: Cylinder002
+    2300024: Cylinder003
+    2300026: Freehand002
+    2300028: Line001
+    2300030: OilTank001
+    2300032: OilTank002
+    2300034: OilTank003
+    2300036: OilTank004
+    2300038: Plane006
+    2300040: Plane009
+    2300042: Plane010
+    2300044: Plane011
+    2300046: Plane012
+    2300048: Torus001
+    2300050: Torus002
+    2300052: Torus003
+    2300054: Torus004
+    2300056: Torus005
+    2300058: Tube025
+    2300060: Tube026
+    2300062: Tube029
+    2300064: Tube030
+    2300066: Tube033
+    2300068: Tube034
+    3300000: Box001
+    3300002: Box002
+    3300004: Box003
+    3300006: Box004
+    3300008: Box005
+    3300010: Box008
+    3300012: ChamferBox001
+    3300014: ChamferBox002
+    3300016: ChamferBox003
+    3300018: ChamferCyl001
+    3300020: Cylinder001
+    3300022: Cylinder002
+    3300024: Cylinder003
+    3300026: Freehand002
+    3300028: Line001
+    3300030: OilTank001
+    3300032: OilTank002
+    3300034: OilTank003
+    3300036: OilTank004
+    3300038: Plane006
+    3300040: Plane009
+    3300042: Plane010
+    3300044: Plane011
+    3300046: Plane012
+    3300048: Torus001
+    3300050: Torus002
+    3300052: Torus003
+    3300054: Torus004
+    3300056: Torus005
+    3300058: Tube025
+    3300060: Tube026
+    3300062: Tube029
+    3300064: Tube030
+    3300066: Tube033
+    3300068: Tube034
+    4300000: Line001
+    4300002: Box001
+    4300004: Tube025
+    4300006: Tube026
+    4300008: Tube029
+    4300010: Tube030
+    4300012: OilTank001
+    4300014: OilTank002
+    4300016: OilTank003
+    4300018: OilTank004
+    4300020: ChamferBox001
+    4300022: Tube033
+    4300024: Cylinder001
+    4300026: ChamferBox002
+    4300028: Tube034
+    4300030: Cylinder002
+    4300032: Box002
+    4300034: Box003
+    4300036: Box004
+    4300038: Box005
+    4300040: Plane006
+    4300042: Plane009
+    4300044: Plane010
+    4300046: Plane011
+    4300048: ChamferCyl001
+    4300050: Box008
+    4300052: Torus001
+    4300054: Torus002
+    4300056: Torus003
+    4300058: Torus004
+    4300060: Torus005
+    4300062: Freehand002
+    4300064: Cylinder003
+    4300066: ChamferBox003
+    4300068: Plane012
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Barriere
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bite
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bois
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Bou\xE9e"
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cabine
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Canot
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Coque
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fenetre avant
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fenetre cote
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hublot
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pneus
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Poign\xE9e porte"
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Porte
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rame
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rame manche
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Rame poign\xE9e"
+    second: {fileID: 2100000, guid: 353c41a586778394bbd99c8bd7d02af1, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
