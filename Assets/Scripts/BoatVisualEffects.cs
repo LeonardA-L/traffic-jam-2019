@@ -20,11 +20,14 @@ namespace tfj
         private float m_rollVelocity;
         private Vector3 m_previousPosition;
         private float m_previousMoveSpeed;
+        private float m_speedChange;
 
 
         //  Foam and particles
         public GameObject m_foamPrefab;
         public Transform m_foamHotspot;
+        public GameObject m_splashPrefab;
+        public Transform m_splashHotspot;
         private Transform m_particleHolder;
         private float m_foamTimer;
 
@@ -49,7 +52,7 @@ namespace tfj
             float newYaw = rotation.y;
             float yawSpeed = (newYaw - m_previousYaw) / deltaTime;
             float moveSpeed = Vector3.Distance(position, m_previousPosition) / deltaTime;
-            float speedChange = -(moveSpeed - m_previousMoveSpeed) / deltaTime;
+            m_speedChange = -(moveSpeed - m_previousMoveSpeed) / deltaTime;
             float yawSpeedChange = (yawSpeed - m_previousYawSpeed) / deltaTime;
 
             m_previousYaw = newYaw;
@@ -63,14 +66,14 @@ namespace tfj
                                                            m_controller.ControlStrategy.MaxRollFromYawSpeed,
                                                            yawSpeedChange)
                                        , 0.1f);
-            if (speedChange > 0)
+            if (m_speedChange > 0)
             {
                 m_previousRockEffect = Mathf.Lerp(m_previousRockEffect,
                                                 Tools.LinearScale(-m_controller.ControlStrategy.MaxSpeed,
                                                                    m_controller.ControlStrategy.MaxSpeed,
                                                                   -m_controller.ControlStrategy.MaxForwardRockFromSpeed,
                                                                    m_controller.ControlStrategy.MaxForwardRockFromSpeed,
-                                                                   speedChange)
+                                                                   m_speedChange)
                                                , 0.1f);
             }
             else
@@ -80,7 +83,7 @@ namespace tfj
                                                    m_controller.ControlStrategy.MaxSpeed,
                                                   -m_controller.ControlStrategy.MaxBackwardRockFromSpeed,
                                                    m_controller.ControlStrategy.MaxBackwardRockFromSpeed,
-                                                   speedChange)
+                                                   m_speedChange)
                                , 0.1f);
             }
 
@@ -129,6 +132,18 @@ namespace tfj
                 GameObject foam = GameObject.Instantiate(m_foamPrefab, m_particleHolder);
                 foam.transform.position = m_foamHotspot.position;
                 foam.transform.forward = m_foamHotspot.forward;
+            }
+
+            Debug.Log(m_rockVelocity + " " + m_speedChange);
+            if(m_speedChange > 0 && m_rockVelocity > 15.0f)
+            {
+                GameObject splash = GameObject.Instantiate(m_splashPrefab, m_particleHolder);
+                splash.transform.position = m_splashHotspot.position - m_splashHotspot.right;
+                splash.transform.forward = m_splashHotspot.forward;
+
+                splash = GameObject.Instantiate(m_splashPrefab, m_particleHolder);
+                splash.transform.position = m_splashHotspot.position + m_splashHotspot.right;
+                splash.transform.forward = m_splashHotspot.forward;
             }
         }
     }

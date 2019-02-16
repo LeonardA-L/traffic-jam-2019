@@ -761,12 +761,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 843206796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.21, y: 0.57, z: 47.92}
+  m_LocalPosition: {x: 54.21, y: 0.85, z: 47.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2818764639723766929}
   - {fileID: 911793870}
   - {fileID: 28611181}
+  - {fileID: 1532372306}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1849,6 +1850,9 @@ MonoBehaviour:
   m_foamPrefab: {fileID: 1032747094854240, guid: 70ce1058aeaa3464b82ca7cc6c3c52ce,
     type: 3}
   m_foamHotspot: {fileID: 28611181}
+  m_splashPrefab: {fileID: 6821662656129162757, guid: 74ad489e957fcaa4aa8a36a70592c904,
+    type: 3}
+  m_splashHotspot: {fileID: 1532372306}
 --- !u!1 &912212720
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,6 +3883,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1532372305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532372306}
+  m_Layer: 0
+  m_Name: SplashHotspot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1532372306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532372305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.859, z: 6.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 843206800}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548912941
 GameObject:
