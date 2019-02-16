@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: BoatTrail
   m_Shader: {fileID: 4800000, guid: fd615791d5ca41247a2f355782cd4632, type: 3}
-  m_ShaderKeywords: _A_ON _OPACITYCLIP_ON
+  m_ShaderKeywords: _A_ON _G_ON _OPACITYCLIP_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -32,7 +32,7 @@ Material:
     - _A: 1
     - _B: 0
     - _Cutoff: 0.5
-    - _G: 0
+    - _G: 1
     - _Opacity: 0.444
     - _OpacityClip: 1
     - _R: 0
