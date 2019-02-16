@@ -134,7 +134,6 @@ namespace tfj
                 foam.transform.forward = m_foamHotspot.forward;
             }
 
-            Debug.Log(m_rockVelocity + " " + m_speedChange);
             if(m_speedChange > 0 && m_rockVelocity > 15.0f)
             {
                 GameObject splash = GameObject.Instantiate(m_splashPrefab, m_particleHolder);
