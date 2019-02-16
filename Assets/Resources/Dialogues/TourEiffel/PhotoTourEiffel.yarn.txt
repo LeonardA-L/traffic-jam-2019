@@ -1,0 +1,62 @@
+title: Start.PhotoTourEiffel
+tags: 
+colorID: 0
+position: 499,971
+---
+<<if has_item(“photo_avion”) and if $Q1_obtained == true and if $has_trade_photo == false>>
+Gardienne : Quelle est cette photo d'avion qui plane au-dessus de la Tour Eiffel ?
+Gardienne : Je n'ai jamais vu cet appareil. Et pourtant j'observe tous les avions qui passent depuis 15 ans. 
+Gardienne : Cette photo m'intrigue, je te l'échange contre une information secrète sur un trésor.
+[[Je ne vois pas l'intérêt de cette photo$Donner la photo contre une information sur un trésor|PropGardienne11]]
+[[Est-ce que ton information sur le trésor est vraiment fiable ?$Refuser de donner la photo|PropGardienne12]]
+<<endif>>
+
+<<if has_item(“photo_avion”) and if $Q1_obtained == true and if $has_trade_photo == true>>
+Gardienne : Tu as trouvé une nouvelle photo de cet avion qui volait au-dessus de la Tour Eiffel ? 
+Gardienne : Je les collectionne maintenant. Est-ce que tu veux bien me la donner contre une autre information secrète ?
+[[J'ai suffisament d'objets$Refuser l'échange photo contre information|PropGardienne13]]
+[[Je suis toujours partant pour une chasse au trésor$Accepter l'échange photo contre information|PropGardienne14]]
+<<endif>>
+===
+title: PropGardienne11
+tags: 
+colorID: 0
+position: 493,699
+---
+Gardienne : Il paraît qu'au nord de l'île Montmartre se trouve une machine à images.
+Gardienne : Elle hypnotise tout ceux qui la regardent.
+Gardienne : A toi de voir si tu veux vraiment tenter de la pêcher.
+<<Remove Inventory photo_avion>>
+<<set $has_trade_photo == true>>
+[[End.TourEiffel]]
+===
+title: PropGardienne12
+tags: 
+colorID: 0
+position: 782,804
+---
+Gardienne : Comme tu voudras. Je retourne à mes occupations alors.
+Gardienne : Bonne journée.
+[[End.TourEiffel]]
+===
+title: PropGardienne13
+tags: 
+colorID: 0
+position: 785,1053
+---
+Gardienne : Tu devrais être plus attentif aux informations secrètes sur les trésors.
+Gardienne : Ces objets pêchés dans l'eau peuvent parfois servir...
+[[End.TourEiffel]]
+===
+title: PropGardienne14
+tags: 
+colorID: 0
+position: 499,1299
+---
+Gardienne : J'ai entendu parler d'un objet flottant non identifié de forme ronde.
+Gardienne : Ca ressemblerait à une vitre sans être aussi transparent.
+Gardienne : La dernière fois qu'on l'a vu il était à l'est de notre île.
+Gardienne : Bonne chance si tu te lances à sa recherche.
+<<Remove Inventory photo_avion>>
+[[End.TourEiffel]]
+===

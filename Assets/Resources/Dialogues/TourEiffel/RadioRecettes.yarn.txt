@@ -1,0 +1,46 @@
+title: Start.RadioRecettes
+tags: 
+colorID: 0
+position: 540,1260
+---
+<<if has_item(“radio”) and if $has_talked_inventeur == false>>
+Inventeur : Bonjour colporteur. Que m'apportes-tu d'intéressant ? Quelque chose pour réparer mon avion j'espère.
+Inventeur : Je me suis crashé sur cette île en essayant de fuir ce monde hostile. J'ai gardé quelques pièces de la carcasse pour l'appareil pour réparer. 
+Inventeur : Mais les plans ont disparu, je vais devoir réparer d'après mes souvenirs.
+Inventeur : A l'avant j'avais une radio exactement comme la tienne. Je te propose un échange contre ce livre que je n'arrive même pas à lire.
+[[Ca me paraît juste$Accepter l'échange radio contre livre de recettes|PropInventeur1]]
+[[Ca ne vaut pas ce livre illisible$Refuser l'échange avec l'inventeur|PropInventeur2]]
+<<endif>>
+
+
+<<if has_item(“radio”) and if $has_talked_inventeur == true>>
+Inventeur : Bonjour colporteur. Est-ce que tu as un objet pour mon avion en morceau ?
+Inventeur : Les réparations avancent petit à petit. J'espère pouvoir m'envoler dans quelques semaines. 
+Inventeur : Pour ma traversée j'aurai besoin d'une radio. On dirait que tu en as une. 
+Inventeur : Et j'ai justement un livre de recettes qui peut t'intéresser.
+[[Un livre de recettes, c'est très bien pour améliorer mon quotidien sur le bateau $Accepter l'échange radio contre livre de recettes|PropInventeur1]]
+[[Cette radio pourrait aussi me servir$Refuser l'échange avec l'inventeur|PropInventeur2]]
+<<endif>>
+===
+title: PropInventeur1
+tags: 
+colorID: 0
+position: 952,1254
+---
+Inventeur : Tu fais un bon deal. Vu les caractères inscrits sur les pages,je suis sûr que ce livre contient des formules magiques.
+Inventeur : Merci pour la radio et à bientôt.
+<<Remove Inventory radio>>
+<<Add Inventory recettes>>
+<<set $has_talked_inventeur == true>>
+[[End.TourEiffel]]
+===
+title: PropInventeur2
+tags: 
+colorID: 0
+position: 954,1515
+---
+Inventeur : Mon vol sera beaucoup plus dangereux si je n'ai pas de radio.
+Inventeur : Je respecte ton choix. Reviens vite la prochaine fois que tu auras un objet technique pour mon avion.
+<<set $has_talked_inventeur == true>>
+[[End.TourEiffel]]
+===

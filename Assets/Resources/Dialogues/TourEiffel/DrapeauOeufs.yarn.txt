@@ -1,11 +1,67 @@
 title: Start.DrapeauOeufs
 tags: 
 colorID: 0
-position: 540,260
+position: 540,1261
 ---
-Ornithologue : Je te prends le drapeau
+<<if has_item(“drapeau”) and if $has_trade_drapeau == false>>
+Ornithologue : Est-ce que tu aurais vu ma mouette Zéphir? 
+Ornithologue : Elle a tendance à s'envoler un peu trop loin et elle ne revient jamais quand je la rappelle. 
+Ornithologue : Peut être que si je lui accrochais une voile ou un vêtement je pourrais la voir de loin. Le drapeau que tu as pourrait faire l'affaire. 
+Ornithologue : Je n'ai pas grand chose à t'offrir en échange, juste des oeufs de mouette.
+[[Je cherche justement des oeufs de mouette$Accepter l'échange du drapeau contre des oeufs de mouette|PropOrni1]]
+[[Tu crois vraiment que je vais manger des oeufs de mouette? $Refuser l'échange|PropOrni2]]
+[[Je préfère garder le drapeau mais on peut discuter$Demander à l'ornithologue les objets qui l'intéresse|PropOrni3]]
+<<endif>>
+
+<<if has_item(“drapeau”) and if $has_trade_drapeau == true>>
+Ornithologue : J'en étais sûr : personne ne va t'échanger ce drapeau. 
+Ornithologue : Est-ce que tu as changé d'avis sur mes oeufs de mouette ?
+[[Oui, c'est un ingrédient utile $Echanger le drapeau contre les oeufs de mouette|PropBoss5]]
+[[Je tiens à ce drapeau$Demander à l'ornithologue les objets qui l'intéresse|PropOrni3]]
+<<endif>>
+===
+title: PropOrni1
+tags: 
+colorID: 0
+position: 1002,1270
+---
+Ornithologue : Merci, je suis ravi. 
+Ornithologue : Grâce à toi, je saurai toujours où est Zéphir.
 <<Remove Inventory drapeau>>
-Ornithologue : Et je te donnes les oeufs de mouette
 <<Add Inventory oeuf_mouette>>
+<<set $has_trade_drapeau == true>>
+[[End.TourEiffel]]
+===
+title: PropOrni2
+tags: 
+colorID: 0
+position: 1010,1535
+---
+Ornithologue : Et bien tu as tort. Tu ne connais pas encore tous les secrets des oeufs de mouette. En plus je te proposais un bon deal.
+Ornithologue : Au cas où tu ne le saurais pas, ce drapeau appartient à la faction ennemie qui a provoqué la Grande Inondation.
+Ornithologue : Personne ne voudra te l'acheter.
+Ornithologue : Tant pis pour toi.
+[[End.TourEiffel]]
+===
+title: PropOrni3
+tags: 
+colorID: 0
+position: 1014,1775
+---
+Ornithologue : Dommage, je vais devoir trouver une autre solution pour Zéphir. 
+Ornithologue : J'ai pensé à un objet qui ferait du bruit pour pouvoir l'appeler lorsqu'elle s'aventure au loin.
+Ornithologue : Reviens quand tu voudras faire un autre échange.
+[[End.TourEiffel]]
+===
+title: PropBoss5
+tags: 
+colorID: 0
+position: 574,1779
+---
+Ornithologue : Exactement, c'est un ingrédient indispensable pour faire des gâteaux par exemple.
+Ornithologue : Et ça tombe bien, je récolte tous les oeufs de Zéphir.
+<<Remove Inventory drapeau>>
+<<Add Inventory oeuf_mouette>>
+<<set $has_trade_drapeau == true>>
 [[End.TourEiffel]]
 ===

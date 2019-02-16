@@ -1,0 +1,33 @@
+title: Start.TrompetteSac
+tags: 
+colorID: 0
+position: 540,1261
+---
+<<if has_item(“trompette”) and if has_item(“sac_a_dos”)>>
+Gardienne : Tu as trouvé un nouveau sifflet géant ? 
+Gardienne : Vite, je te l'échange contre une information sur un trésor avant que l'ornithologue n'arrive.
+[[Bien sûr, un secret sur un trésor ça ne se refuse pas$Echanger la trompette contre une info sur un trésor|PropTrompette1]]
+[[J'aime bien jouer de la musique sur mon bateau$Garder la trompette et quitter l'île|PropTrompette2]]
+<<endif>>
+
+===
+title: PropTrompette1
+tags: 
+colorID: 0
+position: 901,1252
+---
+Gardienne : Alors écoute bien, à l'ouest de la Tour Eiffel, on raconte que se cache un tube capable d'aspirer tout ce qu'il y a autour de lui.
+Gardienne : Un jour s'il se réveille, il pourrait peut être absorber l'océan entier. Nous serions alors libres de quitter l'île.
+Gardienne : Je te conseille d'aller voir.
+<<Remove Inventory trompette>>
+[[End.TourEiffel]]
+===
+title: PropTrompette2
+tags: 
+colorID: 0
+position: 907,1501
+---
+Gardienne : Dans ce cas, tant pis : garde ta trompette.
+Gardienne : A bientôt
+[[End.TourEiffel]]
+===

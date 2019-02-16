@@ -1,11 +1,75 @@
 title: Start.BoueeLentille
 tags: 
 colorID: 0
-position: 540,260
+position: 540,1261
 ---
-Gardienne : Je te prends la bouee
+<<if has_item(“bouee”) and if $has_trade_bouee == false>>
+Gardienne : Que viens-tu faire ici ? J'étais en pleine réparation des lentilles du phare.
+Gardienne : J'espère que tu as quelque chose d'intéressant à me proposer.
+[[Je voudrais savoir ce que tu cherches$Discuter avec la gardienne|PropGardienne1]]
+[[Je peux te proposer une bouée$Proposer d'échanger une bouée contre un autre objet|PropGardienne2]]
+<<endif>>
+<<if has_item(“bouee”) and if $has_trade_bouee == true>>
+Gardienne : J'ai lancé la bouée dans la mer à proximité du phare. De nouveaux bateaux sont venus nous rendre visite.
+Gardienne : Je suis intéressée par une nouvelle bouée si tu en as une. 
+Gardienne : J'ai toujours des lentilles de phare en stock.
+[[Cette fois, je garde la bouée$Quitter l'île sans échanger la bouée|PropGardienne6]]
+[[Une nouvelle lentille, c'est toujours utile$Echanger la bouée contre la lentille|PropGardienne7]]
+<<endif>>
+===
+title: PropGardienne1
+tags: 
+colorID: 0
+position: 824,1012
+---
+Gardienne : Il me faudrait un instrument pour faire du bruit. 
+Gardienne : Un bruit qui s'entendrait sur tout l'île pour prévenir les habitants de l'arrivée d'un nouveau visiteur.
+Gardienne : Je suis aussi parfois gênée par le soleil pour observer les avions. 
+Gardienne : 
+[[Je reviendrai dès que j'ai un objet qui te correspond$Quitter l'île|PropGardienne6]]
+[[Je peux te proposer une bouée$Proposer d'échanger une bouée contre un autre objet|PropGardienne2]]
+===
+title: PropGardienne2
+tags: 
+colorID: 0
+position: 833,1350
+---
+Gardienne : Ah une bouée... ? C'est un objet flottant on dirait.
+Gardienne : Le phare sert plutôt à surveiller les avions. Avec cette balise je pourrais aussi prévenir les avions.
+Gardienne : Je te l'échange contre une lentille de phare. J'ai un stock plein pour mes réparations. 
+[[Une lentille ? C'est parfait pour observer l'horizon$Accepter l'échange de la bouée contre la lentille|PropGardienne3]]
+[[La bouée peut encore me servir.$Refuser l'échange de la bouée contre la lentillee|PropGardienne6]]
+===
+title: PropGardienne3
+tags: 
+colorID: 0
+position: 1182,1348
+---
+Gardienne : Voilà ta lentille. 
+Gardienne : Je retourne dans le phare pour voir comment bien utiliser cette bouée.
+Gardienne : A bientôt.
 <<Remove Inventory bouee>>
-Gardienne : Et je te donnes la lentille
+<<Add Inventory lentille>>
+<<set $has_trade_bouee to true>>
+[[End.TourEiffel]]
+===
+title: PropGardienne6
+tags: 
+colorID: 0
+position: 1169,1010
+---
+Gardienne : Ok. Reviens quand tu es sûr d'avoir trouvé un objet qui correspond à ce que je cherche.
+Gardienne : Au revoir
+[[End.TourEiffel]]
+===
+title: PropGardienne7
+tags: 
+colorID: 0
+position: 545,1588
+---
+Gardienne : Et voilà ta lentille.
+Gardienne : C'est toujours un plaisir de faire des échanges avec toi.
+<<Remove Inventory bouee>>
 <<Add Inventory lentille>>
 [[End.TourEiffel]]
 ===

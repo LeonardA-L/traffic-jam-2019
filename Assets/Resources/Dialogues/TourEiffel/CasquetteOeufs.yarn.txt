@@ -1,11 +1,53 @@
 title: Start.CasquetteOeufs
 tags: 
 colorID: 0
-position: 540,260
+position: 540,1261
 ---
-Ornithologue : Je te prends la casquette
+<<if has_item(“casquette”) and has_item(“lentille”) and $know_need_ingredients == true and >>
+Ornithologue : Bonjour. Tu es toujours le bienvenu à la Tour Eiffel.
+Ornithologue : Mais aujourd'hui je ne vois rien d'intéressant.
+[[Que cherches-tu exactement ?$Discuter avec l'ornithologue|PropOrnithologue10]]
+[[Dans ce cas je repars$Quitter l'île|PropOrnithologue11]]
+<<endif>>
+===
+title: PropOrnithologue10
+tags: 
+colorID: 0
+position: 959,1259
+---
+Ornithologue : Par les temps qui courent, nous avons de plus en plus de journées très chaudes.
+Ornithologue : Le soleil m'aveugle au point que parfois je ne peux même plus observer les oiseaux.
+[[Je peux te proposer une casquette$Proposer une casquette|PropOrnithologue12]]
+[[Je n'ai rien pour toi, désolé$Quitter l'île|PropOrnithologue11]]
+===
+title: PropOrnithologue11
+tags: 
+colorID: 0
+position: 969,1542
+---
+Ornithologue : Très bien. Reviens quand tu veux pour échanger des objets contre des oeufs de mouette.
+Ornithologue : Au revoir.
+[[End.TourEiffel]]
+===
+title: PropOrnithologue12
+tags: 
+colorID: 0
+position: 1249,1250
+---
+Ornithologue : Et comment dois-je l'utiliser ? Juste la poser sur ma tête ? 
+Ornithologue : Pourquoi pas...Je te l'échange contre des oeufs de ma mouette Zéphir. 
+Ornithologue : Ils ont un goût incomparable. Je te les conseille si tu cuisines des desserts.
+[[Justement, j'ai une idée de gâteau$Proposer une casquette|PropOrnithologue13]]
+[[Je n'ai pas de recette en tête$Quitter l'île|PropOrnithologue11]]
+===
+title: PropOrnithologue13
+tags: 
+colorID: 0
+position: 1266,1560
+---
+Ornithologue : Je suis ravie par cette casquette.
+Ornithologue : Voici les oeufs. 
 <<Remove Inventory casquette>>
-Ornithologue : Et je te donnes les oeufs de mouette
 <<Add Inventory oeuf_mouette>>
 [[End.TourEiffel]]
 ===

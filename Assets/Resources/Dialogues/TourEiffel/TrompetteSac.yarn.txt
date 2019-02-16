@@ -1,0 +1,58 @@
+title: Start.TrompetteSac
+tags: 
+colorID: 0
+position: 540,1261
+---
+<<if has_item(“trompette”) >>
+Ornithologue : Bonjour visiteur. Est-ce que tu veux venir observer les oiseaux avec moi ?
+Ornithologue : En temps normal, je vois beaucoup de mouettes dont la mienne, Zéphir, des albatros, des goélands...
+Ornithologue : Souvent ils volent beaucoup trop haut pour que je puisse les observer. 
+Ornithologue : Il me faudrait une sorte de sifflet pour les attirer.
+[[Ca tombe bien j'ai une trompette$Proposer la trompette à l'ornithologue|PropOrni4]]
+[[J'ai une trompette mais je ne suis pas sûr de vouloir l'échanger$Garder la trompette et quitter l'île|PropOrni6]]
+<<endif>>
+
+===
+title: PropOrni4
+tags: 
+colorID: 0
+position: 877,1262
+---
+Ornithologue : Qu'est ce que ce sifflet géant ? Par où doit-on souffler ? 
+Ornithologue : Je te propose un sac-à-dos en échange.
+Gardienne : Avec ce sifflet, je pourrais avertir tous les habitants de l'île de l'arrivée d'un nouveau bateau.
+Gardienne : J'en ai absolument besoin. Si tu me le donnes je te confierai une info secrète sur un trésor. 
+[[Je préfère le sac-à-dos : c'est bien plus pratique$Accepter la proposition l'ornithologue|PropSac]]
+[[Un trésor ? ça m'intéresse$Accepter la proposition de la gardienne|PropInfo]]
+===
+title: PropOrni6
+tags: 
+colorID: 0
+position: 874,1518
+---
+Ornithologue : Et bien tant pis, je continuerai à siffler avec des feuilles.
+Ornithologue : Au revoir.
+[[End.TourEiffel]]
+===
+title: PropSac
+tags: 
+colorID: 0
+position: 1232,1033
+---
+Ornithologue : Merci d'avoir accepté ma proposition. 
+Ornithologue : Voici le sac-à-dos qui te servira en toute occasion pour transporter tes découvertes. 
+<<Remove Inventory trompette>>
+<<Add Inventory sac_dos>>
+[[End.TourEiffel]]
+===
+title: PropInfo
+tags: 
+colorID: 0
+position: 1232,1518
+---
+Gardienne : Au large, entre l'île de la Tour Eiffel et l'île de la Tour Montparnasse, tu trouveras un objet précieux.
+Gardienne : Les légendes parlent d'une lumière rouge qui pourrait rendre aveugle quiconque oserait s'en approcher.
+Gardienne : Quelqu'un de courageux comme toi tenterait sa chance pour découvrir si la légende est vraie.
+<<Remove Inventory trompette>>
+[[End.TourEiffel]]
+===

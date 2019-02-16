@@ -1,0 +1,52 @@
+title: Start.PigeonQ1
+tags: 
+colorID: 6
+position: 540,1260
+---
+<<if has_item(“pigeon”) and if if $Q1_obtained == false >>
+Ornithologue : Oh ! Tu as un oiseau rare : un pigeon. Je n'en vois que très rarement au-dessus de notre île.
+Ornithologue : Comment as-tu réussi à le capturer ? C'est incroyable ! 
+Ornithologue : Est-ce que tu accepterais de me le donner pour que je puisse l'étudier ? 
+Ornithologue : Je vais sûrement découvrir quelque chose d'intéressant. 
+[[Ok, je te le donne$Donner le pigeon à l'ornithologue|PropOrnithologue7]]
+[[Je connais d'autres personnes intéressées par ce pigeon$Refuser de donner le pigeon à l'ornithologue|PropOrnithologue8]]
+<<endif>>
+
+
+<<if has_item(“pigeon”) and if if $Q1_obtained == true >>
+Ornithologue : Tiens tu as un pigeon ? Je n'en vois pas passer souvent par ici.
+Ornithologue : Mais je préfère les oiseaux marins. Je ne suis pas intéressé.
+[[Ok à plus tard$Quitter l'île|PropOrnithologue9]]
+<<endif>>
+===
+title: PropOrnithologue7
+tags: 
+colorID: 0
+position: 952,1254
+---
+Ornithologue : Merci c'est un très beau cadeau. Il a rejoint ma mouette Zéphir.
+Ornithologue : Et en le regardant voler j'ai eu une idée : et si on construire des ailes pour réparer ton hydravion. 
+Ornithologue : J'ai lancé plusieurs tests et...voilà le résultat. 
+Ornithologue : Je te les donne pour te remercier de m'avoir offert le pigeon.
+<<Remove Inventory pigeon>>
+<<set $Q1_obtained == true>>
+[[End.TourEiffel]]
+===
+title: PropOrnithologue8
+tags: 
+colorID: 0
+position: 954,1515
+---
+Inventeur : Mais tu marches sur la tête ? Tu refuses des ailes qui pourrait faire décoller ton hydravion ?
+Inventeur : Je ne sais pas comment tu vas décoller de cette zone...
+<<set $has_talked_inventeur == true>>
+[[End.TourEiffel]]
+===
+title: PropOrnithologue9
+tags: 
+colorID: 0
+position: 540,1528
+---
+Ornithologue : A bientôt ! 
+[[End.TourEiffel]]
+===

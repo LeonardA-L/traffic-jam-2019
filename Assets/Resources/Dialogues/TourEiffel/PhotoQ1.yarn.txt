@@ -1,0 +1,66 @@
+title: Start.PhotoQ1
+tags: 
+colorID: 0
+position: 540,1260
+---
+<<if has_item(“photo_avion”) and if $has_talked_inventeur == false >>
+Inventeur : Bonjour colporteur. Que m'apportes-tu d'intéressant ? Quelque chose pour réparer mon avion j'espère.
+Inventeur : Je me suis crashé sur cette île en essayant de fuir ce monde hostile. J'ai gardé quelques pièces de la carcasse pour l'appareil pour réparer. 
+Inventeur : Mais les plans ont disparu, je vais devoir réparer d'après mes souvenirs.
+Inventeur : Je ne sais pas par où commencer les réparations aujourd'hui...Si seulement j'avais un modèle...une source d'inspiration...
+Inventeur : Mais quelle est cette photo ? On dirait une photo de mon avion...
+Inventeur : C'est bien lui ! C'est bien moi sur cette photo ! Je vais enfin pouvoir le réparer !
+Inventeur : Je suis prêt à te donner quelque chose de très précieux : les ailes de mon avion. Avec la photo je pourrai les reconstruire à l'identique.
+Inventeur : Tu es d'accord ?
+[[Evidemment, c'est l'une des pièces majeures pour mon hydravion$Accepter l'échange de la photo d'avion contre les ailes|PropInventeur5]]
+[[Je préfère garder la photo$Refuser l'échange avec l'inventeur|PropInventeur6]]
+<<endif>>
+
+
+<<if has_item(“photo_avion”) and if $has_talked_inventeur == true and if $Q1_obtained == false >>
+Inventeur : Bonjour colporteur. Je ne sais pas par où commencer les réparations aujourd'hui...
+Inventeur : Si seulement j'avais un modèle...une source d'inspiration...
+Inventeur : Mais quelle est cette photo ? On dirait une photo de mon avion...
+Inventeur : C'est bien lui ! C'est bien moi sur cette photo ! Je vais enfin pouvoir le réparer !
+Inventeur : Je suis prêt à te donner quelque chose de très précieux : les ailes de mon avion. Avec la photo je pourrai les reconstruire à l'identique.
+Inventeur : Tu es d'accord ?
+[[Evidemment, c'est l'une des pièces majeures pour mon hydravion$Accepter l'échange de la photo d'avion contre les ailes|PropInventeur5]]
+[[Je préfère garder la photo$Refuser l'échange avec l'inventeur|PropInventeur6]]
+<<endif>>
+
+<<if has_item(“photo_avion”) and if $has_talked_inventeur == true and if $Q1_obtained == true >>
+Inventeur : Bonjour colporteur. Je vois que tu as trouvé d'autres photos de mon avion.
+Inventeur : Je t'ai donné mon objet le plus précieux. Je ne peux donc plus te les échanger.
+[[C'est noté. Merci$Quitter l'île|PropInventeur7]]
+<<endif>>
+===
+title: PropInventeur5
+tags: 
+colorID: 0
+position: 952,1254
+---
+Inventeur : P
+Inventeur : Bon vent à toi et à bientôt.
+<<Remove Inventory photo_avion>>
+<<set $has_talked_inventeur == true>>
+<<set $Q1_obtained == true>>
+[[End.TourEiffel]]
+===
+title: PropInventeur6
+tags: 
+colorID: 0
+position: 954,1515
+---
+Inventeur : Mais tu marches sur la tête ? Tu refuses des ailes qui pourrait faire décoller ton hydravion ?
+Inventeur : Je ne sais pas comment tu vas décoller de cette zone...
+<<set $has_talked_inventeur == true>>
+[[End.TourEiffel]]
+===
+title: PropInventeur7
+tags: 
+colorID: 0
+position: 540,1528
+---
+Inventeur : A bientôt ! 
+[[End.TourEiffel]]
+===
