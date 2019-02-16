@@ -20,11 +20,21 @@ namespace tfj
         private float m_rollVelocity;
         private Vector3 m_previousPosition;
         private float m_previousMoveSpeed;
+
+
+        //  Foam and particles
+        public GameObject m_foamPrefab;
+        public Transform m_foamHotspot;
+        private Transform m_particleHolder;
+        private float m_foamTimer;
+
         // Start is called before the first frame update
         void Start()
         {
             m_rigidbody = m_controller.GetComponent<Rigidbody>();
             m_previousPosition = transform.position;
+            m_particleHolder = GameObject.Find("ParticlesHolder").transform;
+            m_foamTimer = 0;
         }
 
         // Update is called once per frame
@@ -99,6 +109,27 @@ namespace tfj
             //Debug.Log(noise);
 
             transform.localRotation = Quaternion.Euler(rock, 0, roll);
+
+            UpdateFoam();
+        }
+
+        private void UpdateFoam()
+        {
+            //moveSpeed
+            float foamSpeed = Tools.LinearScale(0, m_controller.ControlStrategy.MaxSpeed,
+                                                0, 10.0f,
+                                                m_previousMoveSpeed);
+            if (foamSpeed == 0)
+                return;
+
+            m_foamTimer += Time.deltaTime;
+            if(m_foamTimer >= 1 / foamSpeed)
+            {
+                m_foamTimer = 0;
+                GameObject foam = GameObject.Instantiate(m_foamPrefab, m_particleHolder);
+                foam.transform.position = m_foamHotspot.position;
+                foam.transform.forward = m_foamHotspot.forward;
+            }
         }
     }
 }
