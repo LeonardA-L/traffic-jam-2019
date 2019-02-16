@@ -705,8 +705,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 3
   m_Radius: 1.5
-  m_SlopeLimit: 1
-  m_StepOffset: 0.03
+  m_SlopeLimit: 0
+  m_StepOffset: 0
   m_SkinWidth: 3.5
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -1792,7 +1792,6 @@ GameObject:
   m_Component:
   - component: {fileID: 911793870}
   - component: {fileID: 912212719}
-  - component: {fileID: 912212721}
   m_Layer: 0
   m_Name: hydravion
   m_TagString: Untagged
@@ -1833,23 +1832,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &912212721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912212718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc8ae047b3c1784ba0327f704c05c30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_phase: 1.33
-  m_amplitude: 0.1
-  m_waveSpeed: 0.5
-  m_waveAmplitude: 6
-  m_waveIntensity: 5
 --- !u!1 &912212722
 GameObject:
   m_ObjectHideFlags: 0
