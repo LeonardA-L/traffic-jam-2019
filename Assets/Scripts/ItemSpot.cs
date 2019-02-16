@@ -7,6 +7,8 @@ public class ItemSpot : MonoBehaviour
 {
     private bool m_triggered = false;
     private bool m_inRange = false;
+    private bool m_fished = false;
+    private bool m_found = false;
     public Item m_item;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class ItemSpot : MonoBehaviour
             return;
         }
 
-        UIManager.Instance.ShowTooltip("Pick", TooltipController.TooltipType.A); // TODO External translation file
+        UIManager.Instance.ShowTooltip("Search", TooltipController.TooltipType.A); // TODO External translation file
         m_inRange = true;
     }
     // Update is called once per frame
@@ -36,8 +38,54 @@ public class ItemSpot : MonoBehaviour
         {
             m_triggered = true;
             UIManager.Instance.HideTooltip();
+            StartCoroutine(FoundCor());
+
+        }
+        else if (m_fished && Input.GetButtonDown("Fire1"))
+        {
+
+            UIManager.Instance.HideTooltip();
+            if (m_found)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                m_triggered = false;
+                StartCoroutine(SearchAgain());
+
+            }
+
+
+        }
+    }
+
+    private IEnumerator FoundCor()
+    {
+        yield return new WaitForSeconds(0.8f);
+        m_fished = true;
+        if (Random.Range(0f, 1f) < 0.2f)
+        {
+            UIManager.Instance.ShowTooltip("Cool! un item           " + m_item.Id, TooltipController.TooltipType.A); // TODO External translation file
             GameManager.Instance.Inventory.Add(m_item);
-            Destroy(gameObject);
+            m_found = true;
+            yield break;
+        }
+        else
+        {
+            UIManager.Instance.ShowTooltip("Zut! rien          " + m_item.Id, TooltipController.TooltipType.A); // TODO External translation file
+
+            yield break;
+
+        }
+    }
+    private IEnumerator SearchAgain()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (m_inRange)
+        {
+            UIManager.Instance.ShowTooltip("Search Again           ", TooltipController.TooltipType.A);
         }
     }
 }
