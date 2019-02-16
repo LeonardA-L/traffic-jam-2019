@@ -9,6 +9,8 @@ public class ItemSpot : MonoBehaviour
     private bool m_inRange = false;
     private bool m_fished = false;
     private bool m_found = false;
+    public float initialChance = 0.2f;
+    private float m_improvedChance;
     public Item m_item;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +29,7 @@ public class ItemSpot : MonoBehaviour
         {
             return;
         }
-
+        m_improvedChance = initialChance;
         UIManager.Instance.ShowTooltip("Search", TooltipController.TooltipType.A); // TODO External translation file
         m_inRange = true;
     }
@@ -75,7 +77,7 @@ public class ItemSpot : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
         m_fished = true;
-        if (Random.Range(0f, 1f) < 0.2f)
+        if (Random.Range(0f, 1f) < m_improvedChance)
         {
             UIManager.Instance.ShowTooltip("Cool! un item           " + m_item.Id, TooltipController.TooltipType.A); // TODO External translation file
             GameManager.Instance.Inventory.Add(m_item);
@@ -85,7 +87,7 @@ public class ItemSpot : MonoBehaviour
         else
         {
             UIManager.Instance.ShowTooltip("Zut! rien          " + m_item.Id, TooltipController.TooltipType.A); // TODO External translation file
-
+            m_improvedChance *= 2;
             yield break;
 
         }
