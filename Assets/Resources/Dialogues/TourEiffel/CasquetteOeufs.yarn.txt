@@ -1,0 +1,11 @@
+title: Start.CasquetteOeufs
+tags: 
+colorID: 0
+position: 540,260
+---
+Ornithologue : Je te prends la casquette
+<<Remove Inventory casquette>>
+Ornithologue : Et je te donnes les oeufs de mouette
+<<Add Inventory oeuf_mouette>>
+[[End.TourEiffel]]
+===

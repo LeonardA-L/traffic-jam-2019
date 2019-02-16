@@ -1,0 +1,36 @@
+title: Start.Montmartre
+tags: 
+colorID: 0
+position: 152,41
+---
+<<if has_item("sac_a_dos") and has_item("photo_avion") is false and $old_lady_available>>
+[[SacPhoto]]
+<<elseif has_item("bouee") and has_item("lentille") is false or has_item("bouee") and $Q3_obtained>>
+[[BoueeInfo]]
+<<elseif has_item("lentille")>>
+[[LentilleVieille]]
+<<elseif has_item("trumpet")>>
+[[TrompetteInfo]]
+<<elseif has_item("ecran") and has_item("lait_riz") is false and $know_need_ingredients>>
+[[EcranLait]]
+<<elseif has_item("oeuf_mouette") and has_item("lait_riz") and has_item("huile")>>
+[[IngredientsMadeleines]]
+<<elseif has_item("oeuf_mouette") or has_item("lait_riz") or has_item("huile")>>
+[[IngredientsIncomplets]]
+<<elseif has_item("madeleines") and $old_lady_available and $Q3_obtained>>
+[[MadeleinesQ3]]
+<<elseif has_item("recettes") and has_item("dictionnaire")>>
+[[TraduireRecettes]]
+<<elseif has_item("recettes")>>
+[[DonnerRecettes]]
+<<else>>
+[[Start.DefaultMontmartre]]
+<<endif>>
+===
+title: Start.DefaultMontmartre
+tags: 
+colorID: 0
+position: 445,213
+---
+Empty Text
+===

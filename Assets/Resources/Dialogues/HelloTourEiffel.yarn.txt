@@ -1,13 +1,13 @@
 title: Start.TourEiffel
 tags: 
 colorID: 0
-position: 482,12
+position: 498,13
 ---
-<<if has_item("casquette") and has_item("oeuf_mouette") is false and has_item("lentille") is false>>
+<<if has_item("casquette") and has_item("oeuf_mouette") is false and has_item("lentille") is false and $know_need_ingredients>>
 [[Start.CasquetteTourEiffel]]
 <<elseif has_item("casquette") and has_item("oeuf_mouette") and has_item("lentille") is false>>
 [[Start.CasquetteLentille]]
-<<elseif has_item("casquette") and has_item("lentille") and has_item("oeuf_mouette") is false>>
+<<elseif has_item("casquette") and has_item("lentille") and has_item("oeuf_mouette") is false and $know_need_ingredients>>
 [[Start.CasquetteOeufs]]
 <<elseif has_item("drapeau") and has_item("casquette") is false and has_item("oeuf_mouette") is false>>
 [[Start.DrapeauOeufs]]
@@ -36,7 +36,7 @@ position: 482,12
 title: Start.DefaultTourEiffel
 tags: 
 colorID: 0
-position: 917,262
+position: 907,155
 ---
 Hum je n'ai rien à échanger
 Oh une casquette 
@@ -46,4 +46,19 @@ Là on met une variable à trou
 <<set $know_need_ingredients to true>>
 Et on est partis c'était le default de test !
 [[Start.TourEiffel]]
+===
+title: End.TourEiffel
+tags: 
+colorID: 0
+position: 911,-143
+---
+[[C'est l'heure de partir$On va voir ce que je peux trouver ailleurs|ExitNode]]
+[[Et si je restais plus longtemps$Peut-être qu'il y a d'autres choses à faire ici ?|Start.TourEiffel]]
+===
+title: ExitNode
+tags: 
+colorID: 0
+position: 1231,-143
+---
+<<Exit Trademat>>
 ===

@@ -1,0 +1,11 @@
+title: Start.CasquetteLentille
+tags: 
+colorID: 0
+position: 540,260
+---
+Gardienne : Je te prends la casquette
+<<Remove Inventory casquette>>
+Gardienne : Et je te donnes la lentille
+<<Add Inventory lentille>>
+[[End.TourEiffel]]
+===

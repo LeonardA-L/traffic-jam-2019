@@ -1,0 +1,11 @@
+title: Start.BoueeLentille
+tags: 
+colorID: 0
+position: 540,260
+---
+Gardienne : Je te prends la bouee
+<<Remove Inventory bouee>>
+Gardienne : Et je te donnes la lentille
+<<Add Inventory lentille>>
+[[End.TourEiffel]]
+===

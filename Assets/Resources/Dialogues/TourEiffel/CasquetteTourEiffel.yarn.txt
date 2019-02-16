@@ -59,6 +59,7 @@ Ornithologue: Voilà donc tes oeufs
 Ornithologue: Encore merci, à tantôt !
 Gardienne: Bon dommage, je reviendrais plus tard.
 <<Hide Trademat 0>>
+[[End.TourEiffel]]
 <<elseif offered_item() is "drapeau">>
 Ornithologue: Ah ça aussi c'est très bien, parfait pour aller observer les oiseaux dans leur milieu naturel.
 Ornithologue: Ben écouté je te le prends.
@@ -88,7 +89,7 @@ position: 78,724
 title: PropGardienne2
 tags: 
 colorID: 0
-position: 804,401
+position: 815,412
 ---
 <<if offered_item() is "casquette">>
 <<Remove Inventory casquette>>
@@ -101,11 +102,12 @@ Gardienne: Je vais aller en profiter tout de suite.
 Gardienne: À plus !
 Ornithologue: Eh ben tant pis pour toi, je garde mes oeufs
 <<Hide Trademat 2>>
+[[End.TourEiffel]]
 <<elseif offered_item() is "bouee">>
 Gardienne: Ah oui ! J'avais pas vu que tu avais ça.
 Gardienne: Hum ben écoute.
 Gardienne: C'est pas ce dont on parlait à la base mais je veux bien te le prendre.
-<<Remove Inventory casquette>>
+<<Remove Inventory bouee>>
 Gardienne: Topes-la !
 Gardienne: Voilà, la lentille. J'espère qu'elle servira à quelqu'un.
 <<Hide Trademat 0>>
@@ -154,6 +156,7 @@ Ornithologue: Voilà donc tes oeufs
 <<Add Inventory oeuf_mouette>>
 <<Hide Trademat 2>>
 Ornithologue: Encore merci, à tantôt !
+[[End.TourEiffel]]
 <<elseif offered_item() is "drapeau">>
 Ornithologue: Ah ça aussi c'est très bien, parfait pour aller observer les oiseaux dans leur milieu naturel.
 Ornithologue: Ben écouté je te le prends.
@@ -162,6 +165,7 @@ Ornithologue: Hop attrape les oeufs, qu'ils te servent bien.
 <<Add Inventory oeuf_mouette>>
 <<Hide Trademat 2>>
 Ornithologue: Encore merci, à tantôt !
+[[End.TourEiffel]]
 <<elseif offered_item() is "">>
 Ornithologue: J'attends toujours que tu me proposes quelque chose là
 [[Ah en effet$Désolé, mea culpa|PropOrnithologue3]]
@@ -191,16 +195,18 @@ Gardienne: Tiens, la lentille. J'espère qu'elle servira à quelqu'un.
 Gardienne: Encore merci ça va vraiment me simplifier la vie.
 Gardienne: Je vais aller en profiter tout de suite.
 Gardienne: À plus !
+[[End.TourEiffel]]
 <<elseif offered_item() is "bouee">>
 Gardienne: Ah oui ! J'avais pas vu que tu avais ça.
 Gardienne: Hum ben écoute.
 Gardienne: C'est pas ce dont on parlait à la base mais je veux bien te le prendre.
-<<Remove Inventory casquette>>
+<<Remove Inventory bouee>>
 Gardienne: Topes-la !
 Gardienne: Voilà, la lentille. J'espère qu'elle servira à quelqu'un.
 <<Hide Trademat 0>>
 <<Add Inventory lentille>>
 Gardienne: Il faut que j'y aille, à bientôt !
+[[End.TourEiffel]]
 <<else>>
 Gardienne: Ah non je sais pas, ça me va pas trop ça
 [[Laisse moi chercher$J'ai forcément quelque chose pour toi|PropGardienne3]]

@@ -1,0 +1,11 @@
+title: Start.AspirateurVentilateur
+tags: 
+colorID: 0
+position: 540,260
+---
+Inventeur : Je te prends le manche d'aspirateur
+<<Remove Inventory aspirateur>>
+Inventeur : Et je te donnes le ventilateur
+<<Add Inventory ventilateur>>
+[[End.TourEiffel]]
+===
