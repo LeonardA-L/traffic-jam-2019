@@ -31,6 +31,17 @@ public class ItemSpot : MonoBehaviour
         UIManager.Instance.ShowTooltip("Search", TooltipController.TooltipType.A); // TODO External translation file
         m_inRange = true;
     }
+    private void OnTriggerExit(Collider other)
+    {
+        var controller = other.gameObject.GetComponent<TFJCharacterController>();
+        if (controller == null)
+        {
+            return;
+        }
+        UIManager.Instance.HideTooltip();
+
+
+    }
     // Update is called once per frame
     void Update()
     {
